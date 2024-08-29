@@ -1,0 +1,26 @@
+pages{
+    signIn[email,password]
+    signUp[fullName,email,password,confirmPassword,avatar]
+    admin{
+        managerPost,
+        addPost{
+            title,
+            category,
+            description,
+            thumbnail
+        }
+    }
+    homePage{
+        searchForm,
+        posts
+    }
+    blog
+    about
+    services
+    contact
+    avatarPage
+}
+components{
+    header,
+    footer
+}
