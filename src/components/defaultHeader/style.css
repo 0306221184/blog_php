@@ -1,0 +1,46 @@
+.wideLogo {
+    cursor: pointer;
+}
+
+.header {
+    height: 4rem;
+}
+
+.header-logo {
+    width: 8rem;
+    height: 2rem;
+}
+
+.search-icon {
+    width: 1.2rem;
+    height: 1.2rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+.avatar {
+    cursor: pointer;
+}
+
+.avatar:hover {
+    cursor: pointer;
+    opacity: 75%;
+}
+
+.avatar .avatar-img {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 100%;
+    padding: .4rem;
+}
+
+.write-btn {
+    border: 1px solid grey;
+    background-color: transparent;
+}
+
+.write-btn:hover {
+    border: 1px solid rgb(194, 193, 193);
+    background-color: rgb(238, 238, 238);
+    transition: .2s;
+}
