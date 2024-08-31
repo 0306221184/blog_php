@@ -1,0 +1,13 @@
+.footer-line {
+    border-top: 1px solid rgb(219, 219, 219);
+}
+
+.footer-description__title {
+    color: #969696;
+    font-size: 1rem;
+}
+
+.footer-description__text {
+    color: #969696;
+    font-size: .8rem;
+}

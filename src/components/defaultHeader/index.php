@@ -4,19 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/style.css">
-    <link rel="stylesheet" href="./style.css">
-    <script src="../../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../../../node_modules/@fortawesome/fontawesome-free/js/all.min.js"></script>
-    <script type="module" src="../../js/index.js"></script>
+    <link rel="stylesheet" href="./src/css/defaultHeader.css">
+    <link rel="stylesheet" href="./src/css/footer.css">
+    <script type="module" src="./src/js/index.js"></script>
+    <link rel="stylesheet" href="./src/css/style.css">
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./node_modules/@fortawesome/fontawesome-free/js/all.min.js"></script>
     <title>Document</title>
 </head>
 
 <body>
-    <div class="header w-100 shadow bg-light d-flex align-items-center ">
+    <header class="header w-100 shadow bg-light d-flex align-items-center ">
         <div class="container d-flex justify-content-between align-items-center">
-            <a class="wideLogo" href="../../../index.html">
-                <img src="../../assets/images/wideLogo.png" class="header-logo" alt="...">
+            <a class="wideLogo" href="./index.php">
+                <img src="./src/assets/images/wideLogo.png" class="header-logo" alt="...">
             </a>
             <div class="d-flex flex-row-reverse gap-1 align-items-center">
                 <div class="">
@@ -31,7 +32,4 @@
                 </div>
             </div>
         </div>
-    </div>
-</body>
-
-</html>
+    </header>
