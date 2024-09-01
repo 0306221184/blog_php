@@ -1,0 +1,55 @@
+.card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    max-width: 40rem;
+}
+
+.card-image {
+    height: 100%;
+    width: 30rem;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: .4rem;
+
+}
+
+.card-content__category {
+    text-transform: uppercase;
+    font-weight: 600;
+    color: rgb(130, 130, 130);
+    font-size: .8rem;
+}
+
+.card-content__title {
+    word-wrap: break-word;
+    font-weight: bold;
+}
+
+.card-content__preview {
+    font-size: .8rem;
+    font-weight: lighter;
+}
+
+.card-content__author {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: .4rem;
+}
+
+.card-content__author .author-avatar {
+    border-radius: 100%;
+    width: 2rem;
+    height: 2rem;
+}
+
+.card-content__author .author-name {
+    font-weight: bold;
+}

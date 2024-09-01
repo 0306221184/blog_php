@@ -1,0 +1,271 @@
+@import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import "../../node_modules/@fortawesome/fontawesome-free/css/all.min.css";
+
+:root {
+    --primary: #2fb5fa;
+    --hoverPrimary: #00a9fd;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    box-sizing: border-box;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+input {
+    outline: none;
+
+}
+
+.myBtn {
+    border: none;
+    outline: none;
+    padding: .6rem 1rem;
+    background: var(--primary);
+    border-radius: 0;
+    color: #fff;
+    transition: .1s linear;
+}
+
+.myBtn:hover {
+    background-color: var(--hoverPrimary);
+}
+
+.avatar-img {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 100%;
+    padding: .4rem;
+}
+
+.card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    max-width: 36rem;
+    min-width: 10rem;
+    cursor: pointer;
+}
+
+.card-image {
+    height: 100%;
+    width: 30rem;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: .4rem;
+
+}
+
+.card-content__category {
+    text-transform: uppercase;
+    font-weight: 600;
+    color: rgb(130, 130, 130);
+    font-size: .8rem;
+}
+
+.card-content__title {
+    word-wrap: break-word;
+    font-weight: bold;
+}
+
+.card-content__preview {
+    font-size: .8rem;
+    font-weight: lighter;
+}
+
+.card-content__author {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: .4rem;
+}
+
+.card-content__author .author-avatar {
+    border-radius: 100%;
+    width: 2rem;
+    height: 2rem;
+}
+
+.card-content__author .author-name {
+    font-weight: bold;
+}
+
+.posts-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.posts-container__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    ;
+}
+
+.posts-container__item {
+    max-width: 36rem;
+}
+
+body#auth {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    height: 100vh;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    min-width: 500px;
+}
+
+.auth-form__logo {
+    width: 4.8rem;
+    height: 4rem;
+}
+
+
+.auth-form__input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+.myInput {
+    height: 40px;
+    padding: 8px 6px;
+    font-size: 16px;
+    width: 80%;
+    border: 1px solid #e5e5e5;
+    background: #fff;
+    color: #666;
+    transition: all linear .2s;
+}
+
+.myInput:focus {
+    border-color: #99baca;
+    outline: 0;
+    background: #f5fbfe;
+    color: #666;
+}
+
+.auth-form__submitBtn {
+    width: 80%;
+}
+
+.auth-form__text>span>a {
+    text-decoration: underline;
+    color: #00a9fd;
+}
+
+.writePost-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 70vh;
+    background: #ffffff;
+}
+
+.writePost-title {
+    color: #000;
+    font-weight: bold;
+    font-size: 1.6rem;
+}
+
+.writePost-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.writePost-form input {
+    width: 100%;
+}
+
+
+.writePost-form__category {
+    border: 1px solid #99baca;
+    padding: .7rem 0;
+    width: 100%;
+}
+
+.writePost-form__postBody {
+    width: 100%;
+    height: 9rem;
+    padding: .8rem 0 0 .8rem;
+}
+
+.post-main {
+    display: flex;
+    flex-direction: column;
+    padding: 4rem 0;
+    width: 50%;
+}
+
+.post-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    margin-bottom: 2rem;
+}
+
+.post-header__category {
+    font-weight: 500;
+    color: #5f5f5f;
+}
+
+.post-header__foreword {
+    font-weight: 400;
+    color: 5f5f5f;
+    font-size: 1rem;
+}
+
+.post-header__author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.post-header__info .post-authorName {
+    font-weight: bold;
+}
+
+.post-header__info .post-UploadDay {
+    font-weight: 400;
+    color: 5f5f5f;
+    font-size: .8rem;
+}
+
+.post-body .post-body__text {
+    font-size: 1.4rem;
+    text-align: justify;
+}
