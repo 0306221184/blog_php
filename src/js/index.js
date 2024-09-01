@@ -1,9 +1,9 @@
-import popoverUser from "./popoverUser.js";
+import popoverUser from "./features/popoverUser.js";
 import logoutEvent from "./eventListener/logoutEvent.js";
-import getUser from "./getUser.js";
+import getUser from "./features/getUser.js";
 
 //Main Thread
-const user = await getUser("./src/api/getUser.php");
+const user = await getUser("./api/getUser.php");
 popoverUser(user);
 
 //EventListener

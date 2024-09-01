@@ -19,7 +19,7 @@ session_start();
                 </div>
                 <button class="write-btn px-4 py-2 rounded-5">
                     <i class="fas fa-feather-alt opacity-50"></i>
-                    <span class="text-dark fw-medium">Viết bài</span>
+                    <a href="./writePost" class="text-dark fw-medium">Viết bài</a>
                 </button>
                 <div class="search-icon d-flex align-items-center text-dark">
                     <i class="fas fa-search w-100 h-100 text-dark opacity-50"></i>

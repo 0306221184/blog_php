@@ -1,6 +1,11 @@
 @import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 @import "../../node_modules/@fortawesome/fontawesome-free/css/all.min.css";
 
+:root {
+    --primary: #2fb5fa;
+    --hoverPrimary: #00a9fd;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -31,6 +36,21 @@ input {
     border: none;
     outline: none;
     padding: .6rem 1rem;
+    background: var(--primary);
+    border-radius: 0;
+    color: #fff;
+    transition: .1s linear;
+}
+
+.myBtn:hover {
+    background-color: var(--hoverPrimary);
+}
+
+.avatar-img {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 100%;
+    padding: .4rem;
 }
 
 .card {
@@ -138,7 +158,7 @@ body#auth {
     width: 100%;
 }
 
-.auth-form__input input {
+.myInput {
     height: 40px;
     padding: 8px 6px;
     font-size: 16px;
@@ -149,7 +169,7 @@ body#auth {
     transition: all linear .2s;
 }
 
-.auth-form__input input:focus {
+.myInput:focus {
     border-color: #99baca;
     outline: 0;
     background: #f5fbfe;
@@ -157,18 +177,95 @@ body#auth {
 }
 
 .auth-form__submitBtn {
-    background: #2fb5fa;
-    border-radius: 0;
-    color: #fff;
     width: 80%;
-    transition: .1s linear;
-}
-
-.auth-form__submitBtn:hover {
-    background: #00a9fd;
 }
 
 .auth-form__text>span>a {
     text-decoration: underline;
     color: #00a9fd;
+}
+
+.writePost-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 70vh;
+    background: #ffffff;
+}
+
+.writePost-title {
+    color: #000;
+    font-weight: bold;
+    font-size: 1.6rem;
+}
+
+.writePost-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.writePost-form input {
+    width: 100%;
+}
+
+
+.writePost-form__category {
+    border: 1px solid #99baca;
+    padding: .7rem 0;
+    width: 100%;
+}
+
+.writePost-form__postBody {
+    width: 100%;
+    height: 9rem;
+    padding: .8rem 0 0 .8rem;
+}
+
+.post-main {
+    display: flex;
+    flex-direction: column;
+    padding: 4rem 0;
+    width: 50%;
+}
+
+.post-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    margin-bottom: 2rem;
+}
+
+.post-header__category {
+    font-weight: 500;
+    color: #5f5f5f;
+}
+
+.post-header__foreword {
+    font-weight: 400;
+    color: 5f5f5f;
+    font-size: 1rem;
+}
+
+.post-header__author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.post-header__info .post-authorName {
+    font-weight: bold;
+}
+
+.post-header__info .post-UploadDay {
+    font-weight: 400;
+    color: 5f5f5f;
+    font-size: .8rem;
+}
+
+.post-body .post-body__text {
+    font-size: 1.4rem;
+    text-align: justify;
 }

@@ -47,9 +47,6 @@
     <?php
     require('./src/components/footer/footer.php')
     ?>
-    <script>
-        console.log(<?= $_SESSION['login'] ?>);
-    </script>
 </body>
 
 </html>

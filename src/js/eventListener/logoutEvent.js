@@ -1,7 +1,7 @@
 const logoutEvent = () => {
   document.addEventListener("click", (event) => {
     if (event.target && event.target.id === "logout") {
-      fetch("./src/api/logout.php", {
+      fetch("./api/logout.php", {
         method: "POST",
       })
         .then((response) => response.text())

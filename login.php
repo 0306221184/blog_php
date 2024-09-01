@@ -21,8 +21,8 @@ $_SESSION['login'] = true;
     <form action="" class="auth-form">
         <img src="./src/assets/images/spiderum-logo.png" alt="" class="auth-form__logo">
         <div class="auth-form__input">
-            <input type="text" name="username" id="username" placeholder="Tên đăng nhập">
-            <input type="password" name="password" id="username" placeholder="Mật khẩu">
+            <input class="myInput" type="text" name="username" id="username" placeholder="Tên đăng nhập" require>
+            <input class="myInput" type="password" name="password" id="username" placeholder="Mật khẩu" require>
         </div>
         <button type="submit" class="myBtn auth-form__submitBtn">Đăng nhập</button>
         <p class="auth-form__text">Chưa có tài khoản? <span class=""><a class="" href="./signUp.php">Đăng ký
