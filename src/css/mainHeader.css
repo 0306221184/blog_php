@@ -2,6 +2,11 @@
     cursor: pointer;
 }
 
+.subLogo {
+    width: 2.8rem;
+    height: 2.8rem;
+}
+
 .line {
     padding-bottom: 1rem;
     border-bottom: 1px solid rgb(219, 219, 219);
@@ -50,6 +55,11 @@
 .header-logo {
     width: 8rem;
     height: 2rem;
+}
+
+.header-logo__sm {
+    width: 4rem;
+    height: 1rem;
 }
 
 .search-icon {

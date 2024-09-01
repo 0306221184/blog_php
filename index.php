@@ -1,58 +1,70 @@
 <?php
-require('./src/components/main-header/index.php')
+$hello = "Hello";
 ?>
+<!DOCTYPE html>
+<html lang="en">
 
-<main class="container">
-    <div class="row justify-content-between">
-        <div class="col-6 col-sm-1 w-50">
-            <div class="card">
-                <div class="card-image">
-                    <img src="./src/assets/images/test.png" alt="./src/assets/images/Logo.pnj" class="h-100 w-100">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/css/mainHeader.css">
+    <link rel="stylesheet" href="./src/css/footer.css">
+    <link rel="stylesheet" href="./src/css/style.css">
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./node_modules/@fortawesome/fontawesome-free/js/all.min.js"></script>
+    <script type="module" src="./src/js/index.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <?php
+    require('./src/components/defaultHeader/index.php')
+    ?>
+    <main class="container py-2 my-2">
+        <div class="posts-container">
+            <div class="posts-container__grid">
+                <div class="posts-container__item">
+                    <?php
+                    require('./src/components/card/card.php')
+                    ?>
                 </div>
-                <div class="card-content">
-                    <p class="card-content__category">
-                        lịch sử
-                    </p>
-                    <p class="card-content__title">
-                        TẤT TẦN TẬT VỀ CÁCH MẠNG THÁNG TÁM - NGỌN LỬA TỪ TRO TÀN MỞ ĐƯỜNG KHAI SINH ĐẤT NƯỚC VIỆT NAM
-                    </p>
-                    <p class="card-content__preview">
-                        Một cuộc khởi nghĩa chấn động thế giới, một dân tộc khởi lửa
-                    </p>
-                    <div class="card-content__author">
-                        <img class="author-avatar" src="./src/assets/images/Logo.png" />
-                        <span class="author-name">
-                            yesimquynh</span>
-                    </div>
+                <div class="posts-container__item">
+                    <?php
+                    require('./src/components/card/card.php')
+                    ?>
+                </div>
+                <div class="posts-container__item">
+                    <?php
+                    require('./src/components/card/card.php')
+                    ?>
+                </div>
+                <div class="posts-container__item">
+                    <?php
+                    require('./src/components/card/card.php')
+                    ?>
+                </div>
+                <div class="posts-container__item">
+                    <?php
+                    require('./src/components/card/card.php')
+                    ?>
+                </div>
+                <div class="posts-container__item">
+                    <?php
+                    require('./src/components/card/card.php')
+                    ?>
+                </div>
+                <div class="posts-container__item">
+                    <?php
+                    require('./src/components/card/card.php')
+                    ?>
                 </div>
             </div>
-        </div>
-        <div class="col-6 col-sm-1 w-50">
-            <div class="card">
-                <div class="card-image">
-                    <img src="./src/assets/images/test.png" alt="./src/assets/images/Logo.pnj" class="h-100 w-100">
-                </div>
-                <div class="card-content">
-                    <p class="card-content__category">
-                        lịch sử
-                    </p>
-                    <p class="card-content__title">
-                        TẤT TẦN TẬT VỀ CÁCH MẠNG THÁNG TÁM - NGỌN LỬA TỪ TRO TÀN MỞ ĐƯỜNG KHAI SINH ĐẤT NƯỚC VIỆT NAM
-                    </p>
-                    <p class="card-content__preview">
-                        Một cuộc khởi nghĩa chấn động thế giới, một dân tộc khởi lửa
-                    </p>
-                    <div class="card-content__author">
-                        <img class="author-avatar" src="./src/assets/images/Logo.png" />
-                        <span class="author-name">
-                            yesimquynh</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</main>
 
-<?php
-require('./src/components/footer/footer.php')
-?>
+        </div>
+    </main>
+    <?php
+    require('./src/components/footer/footer.php')
+    ?>
+</body>
+
+</html>
