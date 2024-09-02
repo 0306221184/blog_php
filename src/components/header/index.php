@@ -17,9 +17,9 @@ session_start();
                     </div>
                     <i class="fas fa-caret-down opacity-50"></i>
                 </div>
-                <button class="write-btn px-4 py-2 rounded-5">
+                <button class="ghostBtn">
                     <i class="fas fa-feather-alt opacity-50"></i>
-                    <a href="./writePost" class="text-dark fw-medium">Viết bài</a>
+                    <a href="./writePost" class="text-dark">Viết bài</a>
                 </button>
                 <div class="search-icon d-flex align-items-center text-dark">
                     <i class="fas fa-search w-100 h-100 text-dark opacity-50"></i>

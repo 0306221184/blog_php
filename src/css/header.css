@@ -86,16 +86,7 @@
     padding: .4rem;
 }
 
-.write-btn {
-    border: 1px solid grey;
-    background-color: transparent;
-}
 
-.write-btn:hover {
-    border: 1px solid rgb(194, 193, 193);
-    background-color: rgb(238, 238, 238);
-    transition: .2s;
-}
 
 .nav-link {
     text-decoration: none;
