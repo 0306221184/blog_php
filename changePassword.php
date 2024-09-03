@@ -13,8 +13,6 @@
     <title require>Change Password</title>
 </head>
 
-
-
 <body>
     <?php
     require './src/components/header/index.php'

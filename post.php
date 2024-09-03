@@ -1,4 +1,5 @@
 <?php
+$userId = 2;
 $postId = 1;
 $postCategory = "Lịch sử";
 $postTitle = "TẤT TẦN TẬT VỀ CÁCH MẠNG THÁNG TÁM - NGỌN LỬA TỪ TRO TÀN MỞ ĐƯỜNG KHAI SINH ĐẤT NƯỚC VIỆT NAM
@@ -39,13 +40,14 @@ Không lâu sau vào đầu thế kỷ thứ 20, Phan Châu Trinh đã vạch ra
             <p class="post-header__category"><?= $postCategory ?></p>
             <h1 class="post-header__title"><?= $postTitle ?></h1>
             <p class="post-header__foreword"><?= $postForeWord ?></p>
-            <div class="post-header__author">
+            <a href="<?= isset($_SESSION["login"]) ? "./user?path=profile&userId=$userId" : "login.php" ?>"
+                class="post-header__author">
                 <img src="<?= $postAuthor["avatar"] ?>" alt="avatar" class="avatar-img img-thumbnail">
                 <div class="post-header__info">
                     <div class="post-authorName"><?= $postAuthor["name"] ?></div>
                     <div class="post-UploadDay"><?= $postUploadDay ?></div>
                 </div>
-            </div>
+            </a>
         </div>
         <div class="post-body">
             <p class="post-body__text">

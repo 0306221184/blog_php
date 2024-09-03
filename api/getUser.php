@@ -1,9 +1,12 @@
 <?php
+session_start();
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $response = [
         "status" => "OK",
-        "username" => "Tinwana",
-        "avatar" => "./src/assets/images/Logo.png"
+        "id" => $_SESSION['userId'],
+        "email" => $_SESSION["email"],
+        "username" => $_SESSION["username"],
+        "avatar" => $_SESSION["avatar"],
     ];
     header('Content-Type: application/json');
     echo json_encode($response);

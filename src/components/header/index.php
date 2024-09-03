@@ -21,8 +21,11 @@ session_start();
                     <i class="fas fa-feather-alt opacity-50"></i>
                     <a href="./writePost" class="text-dark">Viết bài</a>
                 </button>
-                <div class="search-icon d-flex align-items-center text-dark">
+                <div class="icon d-flex align-items-center text-dark">
                     <i class="fas fa-search w-100 h-100 text-dark opacity-50"></i>
+                </div>
+                <div class="icon d-flex align-items-center text-dark">
+                    <i class="fa-regular fa-bell w-100 h-100 text-dark opacity-50"></i>
                 </div>
             </div>
         </div>
@@ -56,7 +59,7 @@ session_start();
                         <div class="btn text-center text-dark fw-medium px-3 py-1">Đăng ký</div>
                     </a>
                 </div>
-                <div class=" search-icon d-flex align-items-center text-dark">
+                <div class=" icon d-flex align-items-center text-dark">
                     <i class="fas fa-search w-100 h-100 text-dark opacity-50"></i>
                 </div>
             </div>

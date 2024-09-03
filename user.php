@@ -1,3 +1,9 @@
+<?php
+$userAvatar = "./src/assets/images/wideLogo.png";
+$username = "yesinquynh";
+$email = "quynh@gmail.com";
+$gender = "nam"
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,46 +24,18 @@
     require('./src/components/header/index.php')
     ?>
     <main class="container user-main">
-        <div class="user-sidebar">
-            <a href="./user.php?path=profile" class="user-sidebar__item">
-                <i class="fa-regular fa-window-restore"></i>
-                <p>Thông tin cá nhân</p>
-            </a>
-            <a href="./writePost.php" class="user-sidebar__item">
-                <i class="fa-regular fa-pen-to-square"></i>
-                <p>Viết bài</p>
-            </a>
-            <a href="./user.php?path=manage-posts" class="user-sidebar__item">
-                <i class="fa-regular fa-folder"></i>
-                <p>Quản lý bài viết</p>
-            </a>
-            <?php if (isset($_SESSION["role"]) && $_SESSION["role"] == "admin"): ?>
-                <a href="./user.php?path=add-user" class="user-sidebar__item">
-                    <i class="fa-regular fa-circle-user"></i>
-                    <p>Thêm người dùng</p>
-                </a>
-                <a href="./user.php?path=manage-users" class="user-sidebar__item">
-                    <i class="fa-regular fa-user"></i>
-                    <p>Quản lý người dùng</p>
-                </a>
-                <a href="./user.php?path=add-category" class="user-sidebar__item">
-                    <i class="fa-solid fa-list"></i>
-                    <p>Thêm danh mục</p>
-                </a>
-                <a href="./user.php?path=manage-categories" class="user-sidebar__item">
-                    <i class="fa-solid fa-table-cells-large"></i>
-                    <p>Quản lý danh mục</p>
-                </a>
-            <?php endif; ?>
-        </div>
+        <?php
+        require('./src/components/userSidebar/index.php')
+        ?>
         <div class="user-content">
-            <div class="user-content__body">
+            <div
+                class="user-content__body <?= isset($_GET["path"]) && str_starts_with($_GET["path"], "manage") ? "scrollY" : "" ?>">
                 <?php if (isset($_GET["path"]) && str_starts_with($_GET["path"], "manage")): ?>
-                    <?php
+                <?php
                     require './src/components/tableManagement/index.php';
                     ?>
                 <?php elseif (isset($_GET["path"]) && $_GET["path"] == "profile"): ?>
-                    <?php
+                <?php
                     require "./src/components/profile/index.php";
                     ?>
                 <?php endif; ?>

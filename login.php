@@ -1,14 +1,3 @@
-<?php
-$_SESSION['login'] = true;
-$_SESSION["role"] = "admin";
-$_SESSION["email"] = "nguyenlehoaitintest@gmail.com";
-$_SESSION["username"] = "Tinwana";
-$_SESSION["password"] = "password";
-$_SESSION["avatar"] = "./src/assets/images/Logo.png";
-$_SESSION["gender"] = "nữ";
-$_SESSION["phoneNumber"] = "0902345123";
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,11 +32,22 @@ $_SESSION["phoneNumber"] = "0902345123";
         </form>
     </main>
 </body>
-<script>
+<!-- <script>
     const handleLoginSession = (e) => {
         // e.preventDefault();
 
     }
-</script>
+</script> -->
 
 </html>
+<?php
+$_SESSION['login'] = true;
+$_SESSION['userId'] = 1;
+$_SESSION["role"] = "admin";
+$_SESSION["email"] = "nguyenlehoaitintest@gmail.com";
+$_SESSION["username"] = "Tinwana";
+$_SESSION["password"] = "password";
+$_SESSION["avatar"] = "./src/assets/images/Logo.png";
+$_SESSION["gender"] = "nữ";
+$_SESSION["phoneNumber"] = "0902345123";
+?>
