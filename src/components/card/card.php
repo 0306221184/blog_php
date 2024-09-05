@@ -1,4 +1,4 @@
-<a href="./post?id=1" class="card">
+<a href="./post?userId=1" class="card">
     <div class="card-image">
         <img src="./src/assets/images/test.png" alt="./src/assets/images/Logo.pnj" class="h-100 w-100">
     </div>

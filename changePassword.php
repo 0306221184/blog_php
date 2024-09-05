@@ -10,7 +10,7 @@
     <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./node_modules/@fortawesome/fontawesome-free/js/all.min.js"></script>
     <script type="module" src="./src/js/index.js"></script>
-    <title require>Sign Up</title>
+    <title require>Change Password</title>
 </head>
 
 <body>
@@ -21,18 +21,17 @@
         <form action="" class="auth-form" method="post">
             <img src="./src/assets/images/spiderum-logo.png" alt="" class="auth-form__logo">
             <div class="auth-form__input">
-                <input class="myInput" type="text" name="username" id="username" placeholder="Tên đăng nhập" require>
-                <input class="myInput" type="password" name="password" id="password" placeholder="Mật khẩu" require>
+                <input class="myInput" type="password" name="oldPassword" id="oldPassword" placeholder="Mật khẩu cũ"
+                    require>
+                <input class="myInput" type="password" name="newPassword" id="newPassword" placeholder="Mật khẩu mới"
+                    require>
                 <input class="myInput" type="password" name="confirmPassword" id="confirmPassword"
-                    placeholder="Nhập lại mật khẩu" require>
+                    placeholder="Nhập lại mật khẩu mới" require>
             </div>
-            <button type="submit" class="myBtn auth-form__submitBtn">Đăng ký</button>
-            <p class="auth-form__text">Đã có tài khoản? <span class=""><a class="" href="./login.php">Đăng
-                        nhập</a></span>
+            <button type="submit" class="myBtn auth-form__submitBtn">Lưu</button>
             </p>
         </form>
     </main>
-
 </body>
 
 </html>

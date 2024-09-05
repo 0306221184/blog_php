@@ -10,7 +10,7 @@ const popoverUser = async (data) => {
                   <img src="${data.avatar}" alt="" class="img-thumbnail">
                   <span class="popover-username fw-bold">${data.username}</span>
               </div>
-              <a href="./user.php" class="popover-write-btn px-4 py-2 rounded-5">
+              <a href="./user.php?path=profile&userId=${data.id}" class="popover-write-btn px-4 py-2 rounded-5">
                   <span class="text-dark fw-medium">Xem trang cá nhân</span>
               </a>
           </div>

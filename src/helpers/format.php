@@ -5,21 +5,22 @@
  */
 class Format
 {
-   public function formatDate($date)
+   public static function formatDate($date)
    {
       return date('F j, Y, g:i a', strtotime($date));
    }
 
-   public function textShorten($text, $limit = 100)
+   public static function textShorten($text, $limit = 50)
    {
       $text = $text . " ";
+      if (strlen($text) < $limit) return $text;
       $text = substr($text, 0, $limit);
       $text = substr($text, 0, strrpos($text, ' '));
       $text = $text . ".....";
       return $text;
    }
 
-   public function validation($data)
+   public static function validation($data)
    {
       $data = trim($data);
       $data = stripcslashes($data);
@@ -27,7 +28,7 @@ class Format
       return $data;
    }
 
-   public function title()
+   public static function title()
    {
       $path = $_SERVER['SCRIPT_FILENAME'];
       $title = basename($path, '.php');
