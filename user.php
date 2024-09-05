@@ -38,6 +38,10 @@ $gender = "nam"
                 <?php
                     require "./src/components/profile/index.php";
                     ?>
+                <?php elseif (isset($_GET["path"]) && str_starts_with($_GET["path"], "add")): ?>
+                <?php
+                    require "./src/components/creation/index.php";
+                    ?>
                 <?php endif; ?>
             </div>
         </div>

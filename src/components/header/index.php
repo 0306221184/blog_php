@@ -26,6 +26,7 @@ session_start();
                 </div>
                 <div class="icon d-flex align-items-center text-dark">
                     <i class="fa-regular fa-bell w-100 h-100 text-dark opacity-50"></i>
+                    <div class="notification-remain bg-danger">2</div>
                 </div>
             </div>
         </div>

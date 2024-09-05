@@ -15,6 +15,7 @@ Trong giai đoạn lầm than Pháp thuộc, có rất nhiều phong trào đấ
 Nhưng như chúng ta đã biết, dẫu cho đường lối của Phan Bội Châu và Phan Châu Trinh dù mang tính chất toàn diện hơn, nguồn lực dồi dào hơn nhưng đều mang về thất bại. Lý do cho những sự thất bại này là gì? 
 Đầu tiên là đường lối phong trào của Phan Bội Châu vào cuối thế kỷ thứ 19. Ông chủ trương bạo động dùng vũ lực để đánh đuổi thực dân Pháp. Ông thành lập Hội Duy Tân. tổ chức phong trào Đông Du vận động thanh niên Việt Nam sang Nhật Bản học tập, chuẩn bị lực lượng để khởi nghĩa vũ trang (mà không ngờ rằng mai này Nhật Bản sẽ là nước cai trị tiếp theo). Dẫu mang tinh thần quyết liệt, sẵn sàng hy sinh vì Tổ Quốc nhưng sự thiếu chuẩn bị cặn kẽ, bị phụ thuộc vào lực lượng Nhật Bản quá nhiều đã khiến các phong trào khởi nghĩa sau đó đều bị dập tắt. 
 Không lâu sau vào đầu thế kỷ thứ 20, Phan Châu Trinh đã vạch ra một đường lối khác để mở ra con đường giành độc lập cho dân tộc Việt Nam. Chủ trương của Phan Châu Trinh là đấu tranh theo con đường ôn hòa, tập trung vào cải cách văn hóa - xã hội, sử dụng nguồn lực chính là quần chúng nhân dân. Ông dẫn đầu phong trào Đông Kinh Nghĩa Thục với mục tiêu khai trí cho dân, truyền bá những kiến thức mới nhằm giúp người dân nâng cao nhận thức về xã hội và đất nước. Phan Châu Trinh tin rằng bên cạnh đấu tranh vũ trang, con đường nâng cao dân trí, cải cách xã hội cũng là một con đường quan trọng để giành độc lập. Mặc dù có ý thức cách mạng sâu sắc, Phan Châu Trinh và các đồng sự chưa có sự tổ chức chặt chẽ và thiếu vũ khí để đấu tranh, do đó lực lượng của ông chưa đủ sức mạnh để chống lại sự đàn áp của thực dân Pháp.";
+$postCommentContent = "Bạn copy paste từ nguồn nào mà nhiều đoạn trong bài viết bị lặp lại kìa."
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,6 +55,7 @@ Không lâu sau vào đầu thế kỷ thứ 20, Phan Châu Trinh đã vạch ra
                 <?= $postContent ?>
             </p>
         </div>
+        <?php require './src/components/postComment/index.php' ?>
     </main>
     <?php
     require('./src/components/footer/footer.php')

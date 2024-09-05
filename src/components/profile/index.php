@@ -1,19 +1,6 @@
 <section class="profile-container">
     <form action="" class="profile-form" method="post">
-        <div action="" class="profile-form__avatar">
-            <label for="avatarUpload" class="profile-avatar__label">
-                <div class="avatarPreview">
-                    <?php if (isset($_GET["userId"]) && $_SESSION["userId"] == $_GET["userId"]): ?>
-                    <i class="fa-solid fa-camera avatarPreview-icon"></i>
-                    <?php endif; ?>
-                    <img id="avatarPreview" class="img-thumbnail"
-                        src="<?= isset($_GET["userId"]) && $_SESSION["userId"] == $_GET["userId"] ? $_SESSION["avatar"] : $userAvatar ?>"
-                        alt="Upload Image">
-                </div>
-                <input type="file" id="avatarUpload" accept="image/*"
-                    <?= $_SESSION["userId"] != $_GET["userId"] ? "disabled" : "" ?>>
-            </label>
-        </div>
+        <?php require './src/components/avatarInput/index.php' ?>
         <div class="profile-form__info">
             <div class="form-info__username">
                 <label for="username">Tên hiển thị</label>
@@ -57,13 +44,13 @@
                     <?= $_SESSION["userId"] != $_GET["userId"] ? "disabled" : "" ?>>
             </div>
             <?php if (isset($_GET["userId"]) && $_SESSION["userId"] == $_GET["userId"]): ?>
-            <a href="./changePassword.php" class="ghostBtn form-info__changePassword">Đổi mật khẩu</a>
+                <a href="./changePassword.php" class="ghostBtn form-info__changePassword">Đổi mật khẩu</a>
             <?php endif; ?>
         </div>
         <button
             class="myBtn profile-form__saveBtn"><?php if (isset($_GET["userId"]) && $_SESSION["userId"] == $_GET["userId"]): ?>
-            Lưu thay đổi
-            <?php elseif (isset($_GET["userId"]) && $_SESSION["userId"] != $_GET["userId"]): ?>Follow
+                Lưu thay đổi
+                <?php elseif (isset($_GET["userId"]) && $_SESSION["userId"] != $_GET["userId"]): ?>Follow
             <?php endif; ?></button>
     </form>
 </section>

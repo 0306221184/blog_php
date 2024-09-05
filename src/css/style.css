@@ -32,6 +32,10 @@ input {
 
 }
 
+.cursorPointer {
+    cursor: pointer;
+}
+
 .scrollY {
     overflow: scroll;
     overflow-x: hidden;
@@ -325,6 +329,27 @@ main#auth {
 .post-body .post-body__text {
     font-size: 1.4rem;
     text-align: justify;
+}
+
+.post-comment {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid #e7f5fc;
+}
+
+.post-comment__form {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 1rem 0;
+    border-bottom: 3px solid #d6d6d6;
+    width: 100%;
+}
+
+.post-comment__user {
+    margin: 1rem 0;
 }
 
 .user-main {
