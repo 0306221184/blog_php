@@ -1,4 +1,7 @@
 <?php
+require './src/lib/session.php';
+Session::init();
+Session::checkSession();
 $userId = 2;
 $postId = 1;
 $postCategory = "Lịch sử";
