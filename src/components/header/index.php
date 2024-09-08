@@ -1,5 +1,5 @@
 <?php
-session_start();
+Session::init();
 ?>
 <?php if (isset($_SESSION['login']) && $_SESSION['login']): ?>
     <header class="d-flex flex-column justify-content-center align-items-center header w-100 shadow bg-light">

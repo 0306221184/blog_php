@@ -1,3 +1,7 @@
+<?php
+require './src/lib/session.php';
+Session::init();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,13 +45,15 @@
 
 </html>
 <?php
-$_SESSION['login'] = true;
-$_SESSION['userId'] = 1;
-$_SESSION["role"] = "admin";
-$_SESSION["email"] = "nguyenlehoaitintest@gmail.com";
-$_SESSION["username"] = "Tinwana";
-$_SESSION["password"] = "password";
-$_SESSION["avatar"] = "./src/assets/images/Logo.png";
-$_SESSION["gender"] = "nữ";
-$_SESSION["phoneNumber"] = "0902345123";
+Session::init();
+Session::set('login', true);
+Session::set('userId', 1);
+Session::set('role', 'ADMIN');
+Session::set('email', "nguyenlehoaitintest@gmail.com");
+Session::set('username', "Tinwana");
+Session::set('password', "844466tin");
+Session::set('avatar', "./src/assets/images/Logo.png");
+Session::set('gender', "NỮ");
+Session::set('phoneNumber', "0902345123");
+// Session::checkLogin();
 ?>

@@ -1,3 +1,9 @@
+<?php
+require './src/lib/session.php';
+require './src/lib/database.php';
+Session::init();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +24,7 @@
     require './src/components/header/index.php'
     ?>
     <main id="auth">
-        <form action="" class="auth-form" method="post">
+        <form action="./signUp.php" class="auth-form" method="post">
             <img src="./src/assets/images/spiderum-logo.png" alt="" class="auth-form__logo">
             <div class="auth-form__input">
                 <input class="myInput" type="text" name="username" id="username" placeholder="Tên đăng nhập" require>
