@@ -1,10 +1,11 @@
 <?php
 require './src/lib/session.php';
 Session::init();
+Session::checkSession();
 $userAvatar = "./src/assets/images/wideLogo.png";
 $username = "yesinquynh";
 $email = "quynh@gmail.com";
-$gender = "nam"
+$gender = "nam";
 ?>
 <!DOCTYPE html>
 <html lang="en">

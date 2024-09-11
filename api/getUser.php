@@ -1,5 +1,6 @@
 <?php
-session_start();
+require '../src/lib/session.php';
+Session::init();
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $response = [
         "status" => "OK",

@@ -1,6 +1,8 @@
 <?php
 require './src/lib/session.php';
 Session::init();
+Session::checkLogin();
+$message = isset(($_GET['error'])) ? $_GET['error'] : "";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,12 +24,15 @@ Session::init();
     require './src/components/header/index.php'
     ?>
     <main id="auth">
-        <form action="" class="auth-form" method="post">
-            <img src="./src/assets/images/spiderum-logo.png" alt="" class="auth-form__logo">
+        <form action="./src/features/logIn.php" class="auth-form" method="post">
+            <img src="./src/assets/images/spiderum-logo.png" alt="./src/assets/images/Logo.png" class="auth-form__logo">
             <div class="auth-form__input">
                 <input class="myInput" type="text" name="username" id="username" placeholder="Tên đăng nhập" require>
                 <input class="myInput" type="password" name="password" id="username" placeholder="Mật khẩu" require>
             </div>
+            <?php if ($message != ""): ?>
+                <p class="text-danger"><?= $message ?></p>
+            <?php endif; ?>
             <button onclick="handleLoginSession(event)" type="submit" class="myBtn auth-form__submitBtn">Đăng
                 nhập</button>
             <p class="auth-form__text">Chưa có tài khoản? <span class=""><a class="" href="./signUp.php">Đăng ký
@@ -44,16 +49,3 @@ Session::init();
 </script> -->
 
 </html>
-<?php
-Session::init();
-Session::set('login', true);
-Session::set('userId', 1);
-Session::set('role', 'ADMIN');
-Session::set('email', "nguyenlehoaitintest@gmail.com");
-Session::set('username', "Tinwana");
-Session::set('password', "844466tin");
-Session::set('avatar', "./src/assets/images/Logo.png");
-Session::set('gender', "NỮ");
-Session::set('phoneNumber', "0902345123");
-// Session::checkLogin();
-?>

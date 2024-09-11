@@ -1,6 +1,7 @@
 <?php
 require './src/lib/session.php';
 Session::init();
+Session::checkSession();
 ?>
 <!DOCTYPE html>
 <html lang="en">

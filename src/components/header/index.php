@@ -8,19 +8,22 @@ Session::init();
                 <img src="./src/assets/images/wideLogo.png" class="header-logo" alt="...">
             </a>
             <a class="subLogo d-sm-inline-block d-lg-none" href="./index.php">
-                <img src="./src/assets/images/Logo.png" class="header-logo__sm w-100 h-100" alt="...">
+                <img src="./src/assets/images/wideLogo.png" class="header-logo__sm w-100 h-100"
+                    alt="./src/assets/images/wideLogo.png">
             </a>
             <div class="d-flex flex-row-reverse gap-2 align-items-center">
                 <div data-popover="avatar" class="avatar d-flex align-items-center justify-content-between gap-1">
                     <div class="">
-                        <img src="./src/assets/images/Logo.png" alt="" class="avatar-img img-thumbnail">
+                        <img src="<?= Session::get("avatar") ?>" alt=".." class="avatar-img img-thumbnail">
                     </div>
                     <i class="fas fa-caret-down opacity-50"></i>
                 </div>
-                <button class="ghostBtn">
-                    <i class="fas fa-feather-alt opacity-50"></i>
-                    <a href="./writePost" class="text-dark">Viết bài</a>
-                </button>
+                <a href="./writePost">
+                    <button class="ghostBtn">
+                        <i class="fas fa-feather-alt opacity-50"></i>
+                        <span class="text-dark">Viết bài</span>
+                    </button>
+                </a>
                 <div class="icon d-flex align-items-center text-dark">
                     <i class="fas fa-search w-100 h-100 text-dark opacity-50"></i>
                 </div>

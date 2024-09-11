@@ -7,7 +7,7 @@ const popoverUser = async (data) => {
     content: `
         <div class="popover-all d-flex flex-column gap-3">
               <div class="popover-user_info d-flex justify-content-start align-items-center gap-3">
-                  <img src="${data.avatar}" alt="" class="img-thumbnail">
+                  <img src="${data.avatar}" alt="" class="img-thumbnail avatar-img">
                   <span class="popover-username fw-bold">${data.username}</span>
               </div>
               <a href="./user.php?path=profile&userId=${data.id}" class="popover-write-btn px-4 py-2 rounded-5">
