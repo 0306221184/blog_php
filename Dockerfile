@@ -20,7 +20,7 @@ RUN apt-get update && apt-get install -y \
 
 # Copy source code and SQL initialization file to the container's working directory
 COPY . /var/www/html
-COPY init.sql /docker-entrypoint-initdb.d/init.sql
+COPY ./src/data/spiderum_clone_sql_generation.sql /docker-entrypoint-initdb.d/spiderum_clone_sql_generation.sql
 
 # Enable Apache mod_rewrite (useful for URL rewriting)
 RUN a2enmod rewrite
