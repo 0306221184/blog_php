@@ -30,6 +30,8 @@ class Database
     if (self::$link->connect_error) {
       self::$error = "Connection fail" . self::$link->connect_error;
       return false;
+    } else {
+      self::$error = "Connection ok";
     }
   }
 
