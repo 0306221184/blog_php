@@ -81,3 +81,7 @@ CREATE TABLE `Nofitication` (
   FOREIGN KEY (triggerUserId) REFERENCES `User`(id) ON DELETE CASCADE
 )CHARACTER SET utf8 COLLATE utf8_general_ci;
 
+
+-- Query
+
+
