@@ -9,6 +9,8 @@ COPY . /var/www/html
 # Enable Apache mod_rewrite (useful for URL rewriting)
 RUN a2enmod rewrite
 
+RUN npm install
+
 # Install any additional PHP extensions (if needed)
 RUN docker-php-ext-install mysqli
 
