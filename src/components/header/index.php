@@ -18,10 +18,12 @@ Session::init();
                     </div>
                     <i class="fas fa-caret-down opacity-50"></i>
                 </div>
-                <button class="ghostBtn">
-                    <i class="fas fa-feather-alt opacity-50"></i>
-                    <a href="./writePost" class="text-dark">Viết bài</a>
-                </button>
+                <a href="./writePost">
+                    <button class="ghostBtn">
+                        <i class="fas fa-feather-alt opacity-50"></i>
+                        <span class="text-dark">Viết bài</span>
+                    </button>
+                </a>
                 <div class="icon d-flex align-items-center text-dark">
                     <i class="fas fa-search w-100 h-100 text-dark opacity-50"></i>
                 </div>

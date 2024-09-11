@@ -1,5 +1,4 @@
 <?php
-require '../lib/database.php';
 require '../lib/session.php';
 Session::init();
 $username = trim($_POST['username']);
@@ -16,6 +15,7 @@ if (empty($username) || empty($password)) {
 $queryAuthentication = "SELECT id,email,username, password,role,avatar,gender,phoneNumber FROM user WHERE username='$username'";
 try {
     // Insert user data
+    require '../lib/database.php';
     $userResult = Database::select($queryAuthentication);
     if ($userResult != false) {
         $user = $userResult->fetch_assoc();

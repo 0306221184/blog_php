@@ -8,7 +8,7 @@
                 src="<?= isset($_GET["userId"]) && $_SESSION["userId"] == $_GET["userId"] ? $_SESSION["avatar"] : $userAvatar ?>"
                 alt="Upload Image">
         </div>
-        <input type="file" id="avatarUpload" accept="image/*"
+        <input type="file" id="avatarUpload" accept="image/*" name="avatarUpload"
             <?= $_SESSION["userId"] != $_GET["userId"] ? "disabled" : "" ?>>
     </label>
 </div>

@@ -1,5 +1,4 @@
 <?php
-require '../lib/database.php';
 $username = trim($_POST['username']);
 $password = trim($_POST['password']);
 $email = trim($_POST['email']);
@@ -21,6 +20,7 @@ $querySignUp = "INSERT INTO user (username, password, email) VALUES ('$username'
 $queryCheckUser = "SELECT id FROM user WHERE username='$username' OR email='$email'";
 try {
     // Insert user data
+    require '../lib/database.php';
     $checkUser = Database::select($queryCheckUser);
     if ($checkUser == false) {
         $userId = Database::insert($querySignUp);
