@@ -1,6 +1,5 @@
 <?php
 require './src/lib/session.php';
-require './src/lib/database.php';
 Session::init();
 $message = isset(($_GET['error'])) ? $_GET['error'] : "";
 
@@ -35,7 +34,7 @@ $message = isset(($_GET['error'])) ? $_GET['error'] : "";
                     placeholder="Nhập lại mật khẩu" require>
             </div>
             <?php if ($message != ""): ?>
-            <p class="text-danger"><?= $message ?></p>
+                <p class="text-danger"><?= $message ?></p>
             <?php endif; ?>
             <button type="submit" class="myBtn auth-form__submitBtn">Đăng ký</button>
             <p class="auth-form__text">Đã có tài khoản? <span class=""><a class="" href="./login.php">Đăng

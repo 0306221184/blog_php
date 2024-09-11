@@ -1,5 +1,6 @@
 <?php
 require '../lib/session.php';
+require '../lib/database.php';
 Session::init();
 $username = trim($_POST['username']);
 $password = trim($_POST['password']);
@@ -12,10 +13,9 @@ if (empty($username) || empty($password)) {
     header('Location: ../../login.php?error=Username and password are required!');
     die();
 }
-$queryAuthentication = "SELECT id,email,username, password,role,avatar,gender,phoneNumber FROM user WHERE username='$username'";
 try {
+    $queryAuthentication = "SELECT id,email,username, password,role,avatar,gender,phoneNumber FROM user WHERE username='$username'";
     // Insert user data
-    require '../lib/database.php';
     $userResult = Database::select($queryAuthentication);
     if ($userResult != false) {
         $user = $userResult->fetch_assoc();
@@ -43,5 +43,5 @@ try {
     // Handle database errors
     $error = $e->getMessage();
     header("Location: ../../login.php?error=$error!!");
-    die($e->getMessage());
+    die();
 }
