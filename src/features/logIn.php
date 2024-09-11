@@ -42,6 +42,6 @@ try {
 } catch (Exception $e) {
     // Handle database errors
     $error = $e->getMessage();
-    header("Location: ../../login.php?error=$error!!");
+    header("Location: ../../login.php?error=Error!!");
     die($e->getMessage());
 }
