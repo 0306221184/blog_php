@@ -32,6 +32,11 @@ input {
 
 }
 
+.rounded-full {
+    border-radius: 100% !important;
+}
+
+
 .cursorPointer {
     cursor: pointer;
 }

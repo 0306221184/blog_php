@@ -1,3 +1,10 @@
+<?php
+require './src/lib/session.php';
+require './src/lib/database.php';
+Session::init();
+$message = isset(($_GET['error'])) ? $_GET['error'] : "";
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,14 +25,18 @@
     require './src/components/header/index.php'
     ?>
     <main id="auth">
-        <form action="" class="auth-form" method="post">
+        <form id="signUpForm" action="./src/features/signUp.php" class="auth-form" method="post">
             <img src="./src/assets/images/spiderum-logo.png" alt="" class="auth-form__logo">
             <div class="auth-form__input">
-                <input class="myInput" type="text" name="username" id="username" placeholder="Tên đăng nhập" require>
-                <input class="myInput" type="password" name="password" id="password" placeholder="Mật khẩu" require>
+                <input class="myInput" type="email" name="email" id="email" placeholder="Email" required>
+                <input class="myInput" type="text" name="username" id="username" placeholder="Tên đăng nhập" required>
+                <input class="myInput" type="password" name="password" id="password" placeholder="Mật khẩu" required>
                 <input class="myInput" type="password" name="confirmPassword" id="confirmPassword"
                     placeholder="Nhập lại mật khẩu" require>
             </div>
+            <?php if ($message != ""): ?>
+            <p class="text-danger"><?= $message ?></p>
+            <?php endif; ?>
             <button type="submit" class="myBtn auth-form__submitBtn">Đăng ký</button>
             <p class="auth-form__text">Đã có tài khoản? <span class=""><a class="" href="./login.php">Đăng
                         nhập</a></span>
@@ -36,3 +47,6 @@
 </body>
 
 </html>
+<?php
+
+?>

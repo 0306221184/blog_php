@@ -4,9 +4,10 @@ const logoutEvent = () => {
       fetch("./api/logout.php", {
         method: "POST",
       })
-        .then((response) => response.text())
+        .then((response) => response.json())
         .then((data) => {
-          window.location.href = "./"; // Change to your login page
+          window.location.href = "./";
+          // Change to your login page
         })
         .catch((error) => console.error("Error:", error));
     }

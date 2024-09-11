@@ -3,14 +3,17 @@ class Session
 {
    public static function init()
    {
-      if (version_compare(phpversion(), '5.4.0', '<')) {
-         if (session_id() == '') {
-            session_start();
-         }
-      } else {
-         if (session_status() == 'PHP_SESSION_NONE') {
-            session_start();
-         }
+      // if (version_compare(phpversion(), '5.4.0', '<')) {
+      //    if (session_id() == '') {
+      //       session_start();
+      //    }
+      // } else {
+      //    if (session_status() == 'PHP_SESSION_NONE') {
+      //       session_start();
+      //    }
+      // }
+      if (session_status() == 1) {
+         session_start();
       }
    }
 
@@ -30,17 +33,13 @@ class Session
 
    public static function checkSession()
    {
-      self::init();
-      if (!isset($_SESSION['login'])) {
-         echo isset($_SESSION['login']);
-         self::destroy();
+      if (empty($_SESSION['login'])) {
          echo "<script> window.location.href='login.php';</script>";
       }
    }
 
    public static function checkLogin()
    {
-      self::init();
       if (self::get("login") == true) {
          echo "<script> window.location.href='index.php';</script>";
       }
@@ -48,7 +47,8 @@ class Session
 
    public static function destroy()
    {
+      $_SESSION['login'] = false;
+      session_unset();
       session_destroy();
-      echo "<script> window.location.href='login.php';</script>";
    }
 }
