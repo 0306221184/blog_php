@@ -43,8 +43,8 @@ try {
     // Handle database errors
     $error = $e->getMessage();
     $econ = Database::$error;
-    echo "$error";
-    echo "$econ";
+    echo "system error" . $error;
+    echo "db error" . $econ;
     // header("Location: ../../login.php?error=$econ!!");
     // die();
 }
