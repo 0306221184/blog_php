@@ -8,7 +8,10 @@ WORKDIR /var/www/html
 RUN apt-get update && apt-get install -y \
     curl \
     gnupg \
-    mysql-server \
+    lsb-release \
+    && curl -fsSL https://dev.mysql.com/get/mysql-apt-config_0.8.22-1_all.deb -o mysql-apt-config.deb \
+    && DEBIAN_FRONTEND=noninteractive dpkg -i mysql-apt-config.deb \
+    && apt-get update && apt-get install -y mysql-server \
     && curl -sL https://deb.nodesource.com/setup_18.x | bash - \
     && apt-get install -y nodejs \
     && apt-get clean
