@@ -35,7 +35,7 @@ EXPOSE 80
 ENV MYSQL_ROOT_PASSWORD=844466Tinrootpassword@
 ENV MYSQL_DATABASE=spiderum_clone_db
 ENV MYSQL_USER=tinwana
-ENV MYSQL_PASSWORD=844466
+ENV MYSQL_PASSWORD=844466tin
 
 # Copy local SQL dump into the container for data migration (if needed)
 COPY ./src/data/spiderum_clone_sql_generation.sql /docker-entrypoint-initdb.d/
