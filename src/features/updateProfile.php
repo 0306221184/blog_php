@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $type = $_POST["type"];
     $updateAvatarStatus = false;
     $userId = Session::get('userId');
-    $getOldAvatarPathQuery = "SELECT avatar from user WHERE id='$userId'";
+    $getOldAvatarPathQuery = "SELECT avatar from User WHERE id='$userId'";
     $oldAvatarPathResult = Database::select($getOldAvatarPathQuery);
     $oldAvatarPath = $oldAvatarPathResult->fetch_assoc();
     $oldAvatarPathFinal = str_replace("./src", "..", $oldAvatarPath);
@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     if (file_exists($oldAvatarPathFinal["avatar"])) {
                         unlink($oldAvatarPathFinal["avatar"]);
                     }
-                    $updateAvatarQuery = "UPDATE user SET avatar='$pathAvatarFileName' WHERE id='$userId'";
+                    $updateAvatarQuery = "UPDATE User SET avatar='$pathAvatarFileName' WHERE id='$userId'";
                     $updateAvatarResult = Database::update($updateAvatarQuery);
                     if ($updateAvatarResult != false) {
                         $updateAvatarStatus = true;
@@ -59,8 +59,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $gender = isset($_POST["gender"]) ? $_POST["gender"] : "";
         $phoneNumber = isset($_POST["phoneNumber"]) ? $_POST["phoneNumber"] : "";
         try {
-            $updateProfileQuery = "UPDATE user SET email='$email',gender='$gender',phoneNumber='$phoneNumber' WHERE id='$userId'";
-            $userInfoQuery = "SELECT id,email, password,role,avatar,gender,phoneNumber FROM user WHERE id='$userId'";
+            $updateProfileQuery = "UPDATE User SET email='$email',gender='$gender',phoneNumber='$phoneNumber' WHERE id='$userId'";
+            $userInfoQuery = "SELECT id,email, password,role,avatar,gender,phoneNumber FROM User WHERE id='$userId'";
             $updateProfileResult = Database::update($updateProfileQuery);
             if ($updateProfileResult != false) {
                 $userInfoResult = Database::select($userInfoQuery);
