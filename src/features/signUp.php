@@ -16,8 +16,8 @@ if (empty($username) || empty($password)) {
     die();
 }
 $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-$querySignUp = "INSERT INTO user (username, password, email) VALUES ('$username','$hashedPassword','$email')";
-$queryCheckUser = "SELECT id FROM user WHERE username='$username' OR email='$email'";
+$querySignUp = "INSERT INTO User (username, password, email) VALUES ('$username','$hashedPassword','$email')";
+$queryCheckUser = "SELECT id FROM User WHERE username='$username' OR email='$email'";
 try {
     // Insert user data
     require '../lib/database.php';
