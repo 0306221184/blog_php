@@ -13,8 +13,8 @@ if (empty($username) || empty($password)) {
     header('Location: ../../login.php?error=Username and password are required!');
     die();
 }
-$queryAuthentication = "SELECT id,email,username, password,role,avatar,gender,phoneNumber FROM user WHERE username='$username'";
 try {
+    $queryAuthentication = "SELECT id,email,username, password,role,avatar,gender,phoneNumber FROM user WHERE username='$username'";
     // Insert user data
     $userResult = Database::select($queryAuthentication);
     if ($userResult != false) {
@@ -42,9 +42,6 @@ try {
 } catch (Exception $e) {
     // Handle database errors
     $error = $e->getMessage();
-    $econ = Database::$error;
-    echo "$error";
-    echo "$econ";
-    // header("Location: ../../login.php?error=$econ!!");
-    // die();
+    header("Location: ../../login.php?error=$error!!");
+    die();
 }
