@@ -18,6 +18,7 @@ try {
     echo "before query";
     // Insert user data
     $userResult = Database::select($queryAuthentication);
+    echo "after query";
     if ($userResult != false) {
         $user = $userResult->fetch_assoc();
         $checkPassword = password_verify($password, $user['password']);
