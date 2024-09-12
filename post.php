@@ -44,7 +44,7 @@ $postCommentContent = "Bạn copy paste từ nguồn nào mà nhiều đoa�
             <p class="post-header__category"><?= $postCategory ?></p>
             <h1 class="post-header__title"><?= $postTitle ?></h1>
             <p class="post-header__foreword"><?= $postForeWord ?></p>
-            <a href="<?= isset($_SESSION["login"]) ? "./user?path=profile&userId=$userId" : "login.php" ?>"
+            <a href="<?= isset($_SESSION["login"]) ? "./user.php?path=profile&userId=$userId" : "login.php" ?>"
                 class="post-header__author">
                 <img src="<?= $postAuthor["avatar"] ?>" alt="avatar" class="avatar-img img-thumbnail">
                 <div class="post-header__info">

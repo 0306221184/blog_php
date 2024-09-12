@@ -18,7 +18,7 @@ Session::init();
                     </div>
                     <i class="fas fa-caret-down opacity-50"></i>
                 </div>
-                <a href="./writePost">
+                <a href="./writePost.php">
                     <button class="ghostBtn">
                         <i class="fas fa-feather-alt opacity-50"></i>
                         <span class="text-dark">Viết bài</span>
