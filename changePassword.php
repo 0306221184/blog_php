@@ -2,6 +2,7 @@
 require 'src/lib/session.php';
 Session::init();
 Session::checkSession();
+$message = isset(($_GET['error'])) ? $_GET['error'] : "";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +24,7 @@ Session::checkSession();
     require './src/components/header/index.php'
     ?>
     <main id="auth">
-        <form action="" class="auth-form" method="post">
+        <form action="./src/features/changePassword.php" class="auth-form" method="post">
             <img src="./src/assets/images/spiderum-logo.png" alt="" class="auth-form__logo">
             <div class="auth-form__input">
                 <input class="myInput" type="password" name="oldPassword" id="oldPassword" placeholder="Mật khẩu cũ"
@@ -33,6 +34,9 @@ Session::checkSession();
                 <input class="myInput" type="password" name="confirmPassword" id="confirmPassword"
                     placeholder="Nhập lại mật khẩu mới" require>
             </div>
+            <?php if ($message != ""): ?>
+            <p class="text-danger"><?= $message ?></p>
+            <?php endif; ?>
             <button type="submit" class="myBtn auth-form__submitBtn">Lưu</button>
             </p>
         </form>
