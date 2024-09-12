@@ -1,23 +1,24 @@
 CREATE DATABASE SPIDERUM_CLONE_DB;
-USE sql12730827;
+USE SPIDERUM_CLONE_DB;
 
 -- Create User table
-CREATE TABLE `User` (
+CREATE TABLE `Users` (
   id INT AUTO_INCREMENT PRIMARY KEY,
   fullname VARCHAR(100) NOT NULL,
   email VARCHAR(100) NOT NULL UNIQUE,
   username VARCHAR(100) NOT NULL UNIQUE,
   password VARCHAR(100) NOT NULL,
   phoneNumber VARCHAR(50),
+  avatar VARCHAR(50),
   gender  ENUM('NAM','NỮ') NOT NULL,
   role ENUM('ADMIN','USER'),
   createdAt TIMESTAMP DEFAULT NOW(),
   -- updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  CONSTRAINT unique_user UNIQUE (email, username,phoneNumber)
+  CONSTRAINT unique_user UNIQUE (email, username,phoneNumber,avatar)
 )CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 -- Create Post table
-CREATE TABLE `Post` (
+CREATE TABLE `Posts` (
   id INT AUTO_INCREMENT PRIMARY KEY,
   title VARCHAR(100) NOT NULL,
   content TEXT NOT NULL,
@@ -25,49 +26,49 @@ CREATE TABLE `Post` (
   categoryId INT NOT NULL,
   createdAt TIMESTAMP DEFAULT  NOW(),
   -- updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  FOREIGN KEY (authorId) REFERENCES `User`(id) ON DELETE CASCADE,
-  FOREIGN KEY (categoryId) REFERENCES `Category`(id) ON DELETE CASCADE
+  CONSTRAINT fk_posts_users FOREIGN KEY (authorId) REFERENCES `Users`(id) ON DELETE CASCADE,
+  CONSTRAINT fk_posts_categories FOREIGN KEY (categoryId) REFERENCES `Categories`(id) ON DELETE CASCADE
 )CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 
 -- Create Comment table
-CREATE TABLE `Comment` (
+CREATE TABLE `Comments` (
   id INT AUTO_INCREMENT PRIMARY KEY,
   content TEXT NOT NULL,
   postId INT NOT NULL,
   userId INT NOT NULL,
   createdAt TIMESTAMP DEFAULT  NOW(),
   -- updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  FOREIGN KEY (postId) REFERENCES `Post`(id) ON DELETE CASCADE,
-  FOREIGN KEY (userId) REFERENCES `User`(id) ON DELETE CASCADE
+ CONSTRAINT fk_comments_posts FOREIGN KEY (postId) REFERENCES `Posts`(id) ON DELETE CASCADE,
+  CONSTRAINT fk_comments_users FOREIGN KEY (userId) REFERENCES `Users`(id) ON DELETE CASCADE
 )CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 
 
 -- Create Follower table
-CREATE TABLE `Follower` (
+CREATE TABLE `Followers` (
   followerId INT NOT NULL,
   followedId INT NOT NULL,
   createdAt TIMESTAMP DEFAULT  NOW(),
   -- updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   CONSTRAINT pk_follower PRIMARY KEY(followerId,followedId),
-  CONSTRAINT fk_followerId FOREIGN KEY (followerId) REFERENCES `User`(id) ON DELETE CASCADE,
-  CONSTRAINT fk_followedId FOREIGN KEY (followedId) REFERENCES `User`(id) ON DELETE CASCADE
+  CONSTRAINT fk_followerId_users FOREIGN KEY (followerId) REFERENCES `Users`(id) ON DELETE CASCADE,
+  CONSTRAINT fk_followedId_users FOREIGN KEY (followedId) REFERENCES `Users`(id) ON DELETE CASCADE
 )CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 -- Create Category table
-CREATE TABLE `Category` (
+CREATE TABLE `Categories` (
   id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(50) NOT NULL unique,
   description TEXT,
   authorId INT NOT NULL,
   createdAt TIMESTAMP DEFAULT  NOW(),
   -- updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  FOREIGN KEY (authorId) REFERENCES `User`(id) ON DELETE CASCADE
+  CONSTRAINT fk_categories_users FOREIGN KEY (authorId) REFERENCES `Users`(id) ON DELETE CASCADE
 )CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 -- Create Nofitication table
-CREATE TABLE `Nofitication` (
+CREATE TABLE `Nofitications` (
   id INT AUTO_INCREMENT PRIMARY KEY,
   userId INT NOT NULL,
   triggerUserId INT NOT NULL,
@@ -76,8 +77,8 @@ CREATE TABLE `Nofitication` (
   isRead BOOLEAN DEFAULT FALSE,
   createdAt TIMESTAMP DEFAULT  NOW(),
   -- updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  FOREIGN KEY (userId) REFERENCES `User`(id) ON DELETE CASCADE,
-  FOREIGN KEY (triggerUserId) REFERENCES `User`(id) ON DELETE CASCADE
+  CONSTRAINT fk_nofitications_users FOREIGN KEY (userId) REFERENCES `Users`(id) ON DELETE CASCADE,
+  CONSTRAINT fk_triggerUserId_users FOREIGN KEY (triggerUserId) REFERENCES `Users`(id) ON DELETE CASCADE
 )CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 

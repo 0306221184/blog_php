@@ -14,7 +14,7 @@ if (empty($username) || empty($password)) {
     die();
 }
 try {
-    $queryAuthentication = "SELECT id,email,username, password,role,avatar,gender,phoneNumber FROM User WHERE username='$username'";
+    $queryAuthentication = "SELECT id,email,username, password,role,avatar,gender,phoneNumber FROM Users WHERE username='$username'";
     // Insert user data
     $userResult = Database::select($queryAuthentication);
     if ($userResult != false) {
@@ -27,6 +27,7 @@ try {
             Session::set('role', $user['role']);
             Session::set('email', $user['email']);
             Session::set('username', $user['username']);
+            Session::set('password', $user['password']);
             Session::set('avatar', $user['avatar']);
             Session::set('gender', $user['gender']);
             Session::set('phoneNumber', $user['phoneNumber']);
