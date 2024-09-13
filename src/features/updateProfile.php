@@ -4,59 +4,58 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     require '../lib/session.php';
     Session::init();
     $type = $_POST["type"];
-    $updateAvatarStatus = false;
-    $userId = Session::get('userId');
-    $getOldAvatarPathQuery = "SELECT avatar from Users WHERE id='$userId'";
-    $oldAvatarPathResult = Database::select($getOldAvatarPathQuery);
-    $oldAvatarPath = $oldAvatarPathResult->fetch_assoc();
-    $oldAvatarPathFinal = str_replace("./src", "..", $oldAvatarPath);
-    $uploadDir = "./src/assets/uploads/";
-    $uploadDirMove = '../assets/uploads/';
-    $avatarFileName;
-    $avatarFileTmpPath;
-    $avatarFileSize;
-    $avatarFileType;
-    if (isset($_FILES['avatarUpload']) && $_FILES['avatarUpload']['error'] == 0) {
-        $avatarFileName = $_FILES['avatarUpload']['name'];
-        $avatarFileTmpPath = $_FILES['avatarUpload']['tmp_name'];
-        $avatarFileSize = $_FILES['avatarUpload']['size'];
-        $avatarFileType = $_FILES['avatarUpload']['type'];
-        $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
-        $fileExtension = strtolower(pathinfo($avatarFileName, PATHINFO_EXTENSION));
-        if (in_array($fileExtension, $allowedExtensions)) {
-            // Check the size of the image (optional)
-            $maxFileSize = 5 * 1024 * 1024; // 2 MB
-            if ($avatarFileSize <= $maxFileSize) {
-                $newAvatarFileName = uniqid() . '.' . $fileExtension;
-                $pathAvatarFileName = $uploadDir . $newAvatarFileName;
-                $pathMoveAvatarFileName = $uploadDirMove . $newAvatarFileName;
-                if (move_uploaded_file($avatarFileTmpPath, $pathMoveAvatarFileName)) {
-                    if (file_exists($oldAvatarPathFinal["avatar"])) {
-                        unlink($oldAvatarPathFinal["avatar"]);
+    if ($type == "update") {
+        $updateAvatarStatus = false;
+        $userId = Session::get('userId');
+        $getOldAvatarPathQuery = "SELECT avatar from Users WHERE id='$userId'";
+        $oldAvatarPathResult = Database::select($getOldAvatarPathQuery);
+        $oldAvatarPath = $oldAvatarPathResult->fetch_assoc();
+        $oldAvatarPathFinal = str_replace("./src", "..", $oldAvatarPath);
+        $uploadDir = "./src/assets/uploads/";
+        $uploadDirMove = '../assets/uploads/';
+        $avatarFileName;
+        $avatarFileTmpPath;
+        $avatarFileSize;
+        $avatarFileType;
+        if (isset($_FILES['avatarUpload']) && $_FILES['avatarUpload']['error'] == 0) {
+            $avatarFileName = $_FILES['avatarUpload']['name'];
+            $avatarFileTmpPath = $_FILES['avatarUpload']['tmp_name'];
+            $avatarFileSize = $_FILES['avatarUpload']['size'];
+            $avatarFileType = $_FILES['avatarUpload']['type'];
+            $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
+            $fileExtension = strtolower(pathinfo($avatarFileName, PATHINFO_EXTENSION));
+            if (in_array($fileExtension, $allowedExtensions)) {
+                // Check the size of the image (optional)
+                $maxFileSize = 5 * 1024 * 1024; // 2 MB
+                if ($avatarFileSize <= $maxFileSize) {
+                    $newAvatarFileName = uniqid() . '.' . $fileExtension;
+                    $pathAvatarFileName = $uploadDir . $newAvatarFileName;
+                    $pathMoveAvatarFileName = $uploadDirMove . $newAvatarFileName;
+                    if (move_uploaded_file($avatarFileTmpPath, $pathMoveAvatarFileName)) {
+                        if (file_exists($oldAvatarPathFinal["avatar"])) {
+                            unlink($oldAvatarPathFinal["avatar"]);
+                        }
+                        $updateAvatarQuery = "UPDATE Users SET avatar='$pathAvatarFileName' WHERE id='$userId'";
+                        $updateAvatarResult = Database::update($updateAvatarQuery);
+                        if ($updateAvatarResult != false) {
+                            $updateAvatarStatus = true;
+                        } else {
+                            header("Location: ../../user.php?path=profile&userId=$userId&error=Upload avatar failed!!");
+                            die();
+                        }
                     }
-                    $updateAvatarQuery = "UPDATE Users SET avatar='$pathAvatarFileName' WHERE id='$userId'";
-                    $updateAvatarResult = Database::update($updateAvatarQuery);
-                    if ($updateAvatarResult != false) {
-                        $updateAvatarStatus = true;
-                    } else {
-                        header("Location: ../../user.php?path=profile&userId=$userId&error=Upload avatar failed!!");
-                        die();
-                    }
+                } else {
+                    header("Location: ../../user.php?path=profile&userId=$userId&error=Upload avatar failed!!");
+                    die();
                 }
             } else {
-                header("Location: ../../user.php?path=profile&userId=$userId&error=Upload avatar failed!!");
+                header("Location: ../../user.php?path=profile&userId=$userId&error=Avatar image have to less than 5MB!!");
                 die();
             }
-        } else {
-            header("Location: ../../user.php?path=profile&userId=$userId&error=Avatar image have to less than 5MB!!");
-            die();
         }
-    }
-
-    if ($type == "update") {
         $username = isset($_POST["username"]) ? $_POST["username"] : "";
         $email = isset($_POST["email"]) ? $_POST["email"] : "";
-        $gender = isset($_POST["gender"]) ? $_POST["gender"] : "";
+        $gender = isset($_POST["gender"]) ? $_POST["gender"] : "NỮ";
         $phoneNumber = isset($_POST["phoneNumber"]) ? $_POST["phoneNumber"] : "";
         try {
             $updateProfileQuery = "UPDATE Users SET email='$email',gender='$gender',phoneNumber='$phoneNumber' WHERE id='$userId'";

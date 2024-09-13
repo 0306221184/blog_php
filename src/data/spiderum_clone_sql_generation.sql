@@ -10,7 +10,7 @@ CREATE TABLE `Users` (
   password VARCHAR(100) NOT NULL,
   phoneNumber VARCHAR(50),
   avatar VARCHAR(50),
-  gender  ENUM('NAM','NỮ') NOT NULL,
+  gender ENUM('NAM','NỮ') NOT NULL,
   role ENUM('ADMIN','USER'),
   createdAt TIMESTAMP DEFAULT NOW(),
   -- updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
