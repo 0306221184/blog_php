@@ -1,6 +1,7 @@
 <?php
 require './src/components/items/tableItems.php';
 require './src/helpers/format.php';
+
 ?>
 <table class="table-primary tableManagement-table">
     <thead class="tableManagement-table__thead">
@@ -28,8 +29,12 @@ require './src/helpers/format.php';
     </thead>
     <tbody class="tableManagement-table__tbody">
         <?php if (isset($_GET["path"]) && $_GET["path"] == "manage-users"): ?>
-        <?php foreach ($usersData as $item): ?>
+        <?php
+            require "./src/features/getAllUsers.php";
+            $getAllUserData = getAllUsers();            ?>
+        <?php foreach ($getAllUserData as $item): ?>
         <tr class="table-tbody__tr">
+            <td scope="col"><?= Format::textShorten($item["id"]) ?></td>
             <td scope="col"><?= Format::textShorten($item["username"]) ?></td>
             <td scope="col"><?= Format::textShorten($item["role"]) ?></td>
             <td scope="col"><button class="myBtn">Edit</button></td>
@@ -48,9 +53,15 @@ require './src/helpers/format.php';
         </tr>
         <?php endforeach; ?>
         <?php elseif (isset($_GET["path"]) && $_GET["path"] == "manage-categories"): ?>
-        <?php foreach ($categoriesData as $item): ?>
+        <?php
+            require "./src/features/getAllCategories.php";
+            $getAllCategoriesData = getAllCategories();
+            ?>
+        <?php foreach ($getAllCategoriesData as $item): ?>
         <tr class="table-tbody__tr">
-            <td scope="col"><?= Format::textShorten($item["name"]) ?></td>
+            <td scope="col"><?= Format::textShorten(ucwords($item["name"])) ?></td>
+            <td scope="col"><?= Format::textShorten($item["description"]) ?></td>
+            <td scope="col"><?= Format::textShorten($item["authorName"]) ?></td>
             <td scope="col"><button class="myBtn">Edit</button></td>
             <td scope="col"><button class="myBtn">Delete</button></td>
         </tr>
