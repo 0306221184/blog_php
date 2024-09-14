@@ -1,4 +1,5 @@
 <?php
+require './src/lib/database.php';
 require './src/lib/session.php';
 Session::init();
 ?>

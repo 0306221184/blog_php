@@ -10,7 +10,7 @@ class Format
       return date('F j, Y, g:i a', strtotime($date));
    }
 
-   public static function textShorten($text, $limit = 50)
+   public static function textShorten($text, $limit = 30)
    {
       $text = $text . " ";
       if (strlen($text) < $limit) return $text;

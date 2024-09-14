@@ -1,4 +1,5 @@
 <?php
+require './src/lib/database.php';
 require './src/lib/session.php';
 Session::init();
 Session::checkSession();
@@ -27,11 +28,13 @@ Session::checkSession();
         <form action="" class="writePost-form">
             <input type="text" class="myInput" placeholder="Tiêu đề">
             <select name="category" id="category" class="writePost-form__category">
-                <option value="tranh luận">Tranh luận</option>
-                <option value="khoa học - công nghệ">Khoa học - công nghệ</option>
-                <option value="tài chính">Tài chính</option>
-                <option value="sáng tác">Sáng tác</option>
-                <option value="nghệ thuật">Nghệ thuật</option>
+                <?php
+                require "./src/features/getAllCategories.php";
+                $getAllCategoriesData = getAllCategories();
+                ?>
+                <?php foreach ($getAllCategoriesData as $item): ?>
+                <option value='<?= $item["name"] ?>'><?= $item["name"] ?></option>
+                <?php endforeach; ?>
             </select>
             <textarea class="myInput writePost-form__postBody" name="postBody" id="postBody"
                 placeholder="Nội dung"></textarea>

@@ -1,8 +1,8 @@
 <section class="profile-container">
     <?php if (isset($_GET['error'])): ?>
-    <p class="text-center text-danger fs-4"><?= $_GET['error'] ?></p>
+        <p class="text-center text-danger fs-4"><?= $_GET['error'] ?></p>
     <?php elseif (isset($_GET['message'])): ?>
-    <p class="text-center text-success fs-4"><?= $_GET['message'] ?></p>
+        <p class="text-center text-success fs-4"><?= $_GET['message'] ?></p>
     <?php endif; ?>
     <form action="./src/features/updateProfile.php" class="profile-form" method="post" enctype="multipart/form-data">
         <?php require './src/components/avatarInput/index.php' ?>
@@ -48,14 +48,14 @@
                     <?= $_SESSION["userId"] != $_GET["userId"] ? "disabled" : "" ?>>
             </div>
             <?php if (isset($_GET["userId"]) && $_SESSION["userId"] == $_GET["userId"]): ?>
-            <a href="./changePassword.php" class="ghostBtn form-info__changePassword">Đổi mật khẩu</a>
+                <a href="./changePassword.php" class="ghostBtn form-info__changePassword">Đổi mật khẩu</a>
             <?php endif; ?>
         </div>
         <button name="type" type="submit" class="myBtn profile-form__saveBtn"
             value="<?= isset($_GET["userId"]) && $_SESSION["userId"] == $_GET["userId"] ? 'update' : 'follow' ?>">
             <?php if (isset($_GET["userId"]) && $_SESSION["userId"] == $_GET["userId"]): ?>
-            Lưu thay đổi
-            <?php elseif (isset($_GET["userId"]) && $_SESSION["userId"] != $_GET["userId"]): ?>Follow
+                Lưu thay đổi
+                <?php elseif (isset($_GET["userId"]) && $_SESSION["userId"] != $_GET["userId"]): ?>Follow
             <?php endif; ?></button>
     </form>
 </section>

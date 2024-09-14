@@ -1,7 +1,7 @@
 <?php
-$userManagementItem = ["username", "role"];
+$userManagementItem = ["id", "username", "role"];
 $postManagementItem = ["title", "category"];
-$categoryManagementItem = ["name"];
+$categoryManagementItem = ["name", "description", "author"];
 $usersData = [
     ["username" => "tinwana", "role" => "admin"],
     ["username" => "quynh", "role" => "user"],
@@ -30,4 +30,29 @@ $postsData = [
     ["title" => "CÁCH MẠNG THÁNG TÁM", "category" => "Lịch sử"],
     ["title" => "CÁCH MẠNG THÁNG TÁM", "category" => "Lịch sử"],
 ];
-$categoriesData = [["name" => "history"], ["name" => "math"], ["name" => "political"], ["name" => "art"], ["name" => "cosmic"]];
+$categoriesData = [[
+    "name" => "history",
+    "description" => "Talk about lorem asi khu just right",
+    "author" => "Tinwana"
+
+], [
+    "name" => "math",
+    "description" => "Talk about lorem asi khu just right",
+    "author" => "Tinwana"
+
+], [
+    "name" => "political",
+    "description" => "Talk about lorem asi khu just right",
+    "author" => "Tinwana"
+
+], [
+    "name" => "art",
+    "description" => "Talk about lorem asi khu just right",
+    "author" => "Tinwana"
+
+], [
+    "name" => "cosmic",
+    "description" => "Talk about lorem asi khu just right",
+    "author" => "Tinwana"
+
+]];
