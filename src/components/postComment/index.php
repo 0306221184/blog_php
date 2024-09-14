@@ -5,7 +5,7 @@
     </form>
     <div class="post-comment__body">
         <div class="post-comment__user">
-            <a href="<?= isset($_SESSION["login"]) ? "./user?path=profile&userId=$userId" : "login.php" ?>"
+            <a href="<?= isset($_SESSION["login"]) ? "./user.php?path=profile&userId=$userId" : "login.php" ?>"
                 class="post-header__author">
                 <img src="<?= $postAuthor["avatar"] ?>" alt="avatar" class="avatar-img img-thumbnail">
                 <div class="post-header__info">
