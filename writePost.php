@@ -33,7 +33,7 @@ Session::checkSession();
                 $getAllCategoriesData = getAllCategories();
                 ?>
                 <?php foreach ($getAllCategoriesData as $item): ?>
-                <option value='<?= $item["name"] ?>'><?= $item["name"] ?></option>
+                    <option value='<?= $item["name"] ?>'><?= $item["name"] ?></option>
                 <?php endforeach; ?>
             </select>
             <textarea class="myInput writePost-form__postBody" name="postBody" id="postBody"
