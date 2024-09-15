@@ -10,13 +10,13 @@ function getAllUsers()
                 $getAllUserData = $getAllUserResult->fetch_all(MYSQLI_ASSOC);
                 return $getAllUserData;
             } else {
-                return "Something went wrong!!";
+                return false;
             }
         } else {
-            return "Permission denied!!";
+            return false;
         }
     } catch (Exception $e) {
         $error =  $e->getMessage();
-        return $error;
+        return false;
     }
 }
