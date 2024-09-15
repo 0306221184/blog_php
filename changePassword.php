@@ -35,8 +35,10 @@ $message = isset(($_GET['error'])) ? $_GET['error'] : "";
                 <input class="myInput" type="password" name="confirmPassword" id="confirmPassword"
                     placeholder="Nhập lại mật khẩu mới" require>
             </div>
-            <?php if ($message != ""): ?>
-            <p class="text-danger"><?= $message ?></p>
+            <?php if (isset($_GET['error'])): ?>
+            <p class="text-center text-danger fs-5"><?= $_GET['error'] ?></p>
+            <?php elseif (isset($_GET['message'])): ?>
+            <p class="text-center text-success fs-5"><?= $_GET['message'] ?></p>
             <?php endif; ?>
             <button type="submit" class="myBtn auth-form__submitBtn">Lưu</button>
             </p>
