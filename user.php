@@ -27,6 +27,11 @@ $gender = "nam";
     <?php
     require('./src/components/header/index.php')
     ?>
+    <?php if (isset($_GET['error'])): ?>
+        <p class="text-center text-danger fs-5"><?= $_GET['error'] ?></p>
+    <?php elseif (isset($_GET['message'])): ?>
+        <p class="text-center text-success fs-5"><?= $_GET['message'] ?></p>
+    <?php endif; ?>
     <main class="container user-main">
         <?php
         require('./src/components/userSidebar/index.php')
@@ -35,15 +40,15 @@ $gender = "nam";
             <div
                 class="user-content__body <?= isset($_GET["path"]) && str_starts_with($_GET["path"], "manage") ? "scrollY" : "" ?>">
                 <?php if (isset($_GET["path"]) && str_starts_with($_GET["path"], "manage")): ?>
-                <?php
+                    <?php
                     require './src/components/tableManagement/index.php';
                     ?>
                 <?php elseif (isset($_GET["path"]) && $_GET["path"] == "profile"): ?>
-                <?php
+                    <?php
                     require "./src/components/profile/index.php";
                     ?>
                 <?php elseif (isset($_GET["path"]) && str_starts_with($_GET["path"], "add")): ?>
-                <?php
+                    <?php
                     require "./src/components/creation/index.php";
                     ?>
                 <?php endif; ?>

@@ -25,8 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
             $fileExtension = strtolower(pathinfo($avatarFileName, PATHINFO_EXTENSION));
             if (in_array($fileExtension, $allowedExtensions)) {
-                // Check the size of the image (optional)
-                $maxFileSize = 5 * 1024 * 1024; // 2 MB
+                $maxFileSize = 5 * 1024 * 1024;
                 if ($avatarFileSize <= $maxFileSize) {
                     $newAvatarFileName = uniqid() . '.' . $fileExtension;
                     $pathAvatarFileName = $uploadDir . $newAvatarFileName;
