@@ -40,15 +40,15 @@ $gender = "nam";
             <div
                 class="user-content__body <?= isset($_GET["path"]) && str_starts_with($_GET["path"], "manage") ? "scrollY" : "" ?>">
                 <?php if (isset($_GET["path"]) && str_starts_with($_GET["path"], "manage")): ?>
-                    <?php
+                <?php
                     require './src/components/tableManagement/index.php';
                     ?>
                 <?php elseif (isset($_GET["path"]) && $_GET["path"] == "profile"): ?>
-                    <?php
+                <?php
                     require "./src/components/profile/index.php";
                     ?>
                 <?php elseif (isset($_GET["path"]) && str_starts_with($_GET["path"], "add")): ?>
-                    <?php
+                <?php
                     require "./src/components/creation/index.php";
                     ?>
                 <?php endif; ?>

@@ -41,6 +41,7 @@ require './src/helpers/format.php';
                     <td scope="col"><button class="myBtn">Delete</button></td>
                 </tr>
             <?php endforeach; ?>
+        
         <?php elseif (isset($_GET["path"]) && $_GET["path"] == "manage-posts"): ?>
             <?php
             require "./src/features/getNotExceptPosts.php";
