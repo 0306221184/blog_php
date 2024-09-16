@@ -27,11 +27,6 @@ $gender = "nam";
     <?php
     require('./src/components/header/index.php')
     ?>
-    <?php if (isset($_GET['error'])): ?>
-        <p class="text-center text-danger fs-5"><?= $_GET['error'] ?></p>
-    <?php elseif (isset($_GET['message'])): ?>
-        <p class="text-center text-success fs-5"><?= $_GET['message'] ?></p>
-    <?php endif; ?>
     <main class="container user-main">
         <?php
         require('./src/components/userSidebar/index.php')
