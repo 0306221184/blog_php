@@ -1,6 +1,6 @@
 <?php
 $userManagementItem = ["id", "username", "role"];
-$postManagementItem = ["title", "category"];
+$postManagementItem = ["author", "title", "category"];
 $categoryManagementItem = ["name", "description", "author"];
 $usersData = [
     ["username" => "tinwana", "role" => "admin"],
