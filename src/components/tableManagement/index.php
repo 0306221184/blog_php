@@ -50,28 +50,55 @@ require './src/helpers/format.php';
             <?php endforeach; ?>
         <?php elseif (isset($_GET["path"]) && $_GET["path"] == "manage-posts"): ?>
             <?php
+            $userId = Session::get('userId');
+            $userRole = Session::get('role');
             require "./src/features/getAllPosts.php";
+            require "./src/features/getPostsByUser.php";
+            $getPostByUserData = getPostsByUserId($userId);
             $getAllPostsData = getAllPosts();
             ?>
-            <?php if ($getAllPostsData !== false): ?>
-                <?php foreach ($getAllPostsData as $item): ?>
-                    <?php $nameManageBtn = $item['isActive'] == false ? "Enable" : "Disable" ?>
-                    <tr class="table-tbody__tr">
-                        <td scope="col"><?= Format::textShorten($item["username"]) ?></td>
-                        <td scope="col"><?= Format::textShorten($item["title"]) ?></td>
-                        <td scope="col"><?= Format::textShorten($item["category"]) ?></td>
-                        <td scope="col"><a
-                                href="./src/features/adminToggleManagePost.php?postId=<?= $item['id'] ?>&isActive=<?= $item['isActive'] ?>"><button
-                                    class="myBtn"><?= isset($_SESSION["role"]) && $_SESSION["role"] == "ADMIN" ? $nameManageBtn : "Edit" ?></button></a>
-                        </td>
-                        <td scope="col"><a href="./src/features/adminDeletePost.php?postId=<?= $item['id'] ?>"><button
-                                    class="myBtn">Delete</button></td></a>
-
-                    </tr>
-                <?php endforeach; ?>
-            <?php elseif ($getAllPostsData == false): ?>
-                <p class="text-center fs-3 text-success">No post need except here!!!</p>
+            <?php if ($userRole == "ADMIN"): ?>
+                <?php if ($getAllPostsData !== false): ?>
+                    <?php foreach ($getAllPostsData as $item): ?>
+                        <?php $nameManageBtn = $item['isActive'] == false ? "Enable" : "Disable" ?>
+                        <tr class="table-tbody__tr">
+                            <td scope="col"><?= Format::textShorten($item["username"]) ?></td>
+                            <td scope="col"><?= Format::textShorten($item["title"]) ?></td>
+                            <td scope="col"><?= Format::textShorten($item["category"]) ?></td>
+                            <td scope="col"><a
+                                    href="./src/features/adminToggleManagePost.php?postId=<?= $item['id'] ?>&isActive=<?= $item['isActive'] ?>"><button
+                                        class="myBtn"><?= isset($_SESSION["role"]) && $_SESSION["role"] == "ADMIN" ? $nameManageBtn : "Edit" ?></button></a>
+                            </td>
+                            <td scope="col"><a href="./src/features/adminDeletePost.php?postId=<?= $item['id'] ?>"><button
+                                        class="myBtn">Delete</button></td></a>
+                        </tr>
+                    <?php endforeach; ?>
+                <?php elseif ($getAllPostsData == false): ?>
+                    <p class="text-center fs-3 text-success">No post need except here!!!</p>
+                <?php endif; ?>
+            <?php elseif ($userRole == "USER"): ?>
+                <?php if ($getPostByUserData !== false): ?>
+                    <?php foreach ($getPostByUserData as $item): ?>
+                        <?php $nameManageBtn = $item['isActive'] == false ? "Approving" : "Excepted" ?>
+                        <?php $statusBtnClassTextColor = $item['isActive'] ? "text-success" : "text-dark" ?>
+                        <tr class="table-tbody__tr">
+                            <td scope="col"><?= Format::textShorten($item["username"]) ?></td>
+                            <td scope="col"><?= Format::textShorten($item["title"]) ?></td>
+                            <td scope="col"><?= Format::textShorten($item["category"]) ?></td>
+                            <td scope="col"><a href="./editPost.php?postId=<?= $item['id'] ?>"><button
+                                        class="myBtn"><?= isset($_SESSION["role"]) && $_SESSION["role"] == "ADMIN" ? $nameManageBtn : "Edit" ?></button></a>
+                            </td>
+                            <td scope="col"><a href="./src/features/adminDeletePost.php?postId=<?= $item['id'] ?>"><button
+                                        class="myBtn">Delete</button></a></td>
+                            <td scope="col"><span class="fw-bold <?= $statusBtnClassTextColor ?>"><?= $nameManageBtn ?></span>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                <?php elseif ($getPostByUserData == false): ?>
+                    <p class="text-center fs-3 text-success">No post need except here!!!</p>
+                <?php endif; ?>
             <?php endif; ?>
+
         <?php elseif (isset($_GET["path"]) && $_GET["path"] == "manage-categories"): ?>
             <?php
             require "./src/features/getAllCategories.php";
