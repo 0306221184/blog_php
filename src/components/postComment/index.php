@@ -5,16 +5,16 @@
     </form>
     <div class="post-comment__body">
         <div class="post-comment__user">
-            <a href="<?= isset($_SESSION["login"]) ? "./user.php?path=profile&userId=$userId" : "login.php" ?>"
+            <a href="<?= isset($_SESSION["login"]) ? "./user.php?path=profile&userId=$authorId" : "login.php" ?>"
                 class="post-header__author">
-                <img src="<?= $postAuthor["avatar"] ?>" alt="avatar" class="avatar-img img-thumbnail">
+                <img src="<?= $authorData["avatar"] ?>" alt="avatar" class="avatar-img img-thumbnail">
                 <div class="post-header__info">
-                    <div class="post-authorName"><?= $postAuthor["name"] ?></div>
-                    <div class="post-UploadDay"><?= $postUploadDay ?></div>
+                    <div class="post-authorName"><?= $authorData["username"] ?></div>
+                    <div class="post-UploadDay"><?= $postData["createdAt"] ?></div>
                 </div>
             </a>
             <p class="comment-body__content">
-                <?= $postCommentContent ?>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
             </p>
         </div>
     </div>

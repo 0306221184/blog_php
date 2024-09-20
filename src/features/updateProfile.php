@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $gender = isset($_POST["gender"]) ? $_POST["gender"] : "NỮ";
         $phoneNumber = isset($_POST["phoneNumber"]) ? $_POST["phoneNumber"] : "";
         try {
-            $updateProfileQuery = "UPDATE Users SET email='$email',gender='$gender',phoneNumber='$phoneNumber' WHERE id='$userId'";
+            $updateProfileQuery = "UPDATE Users SET email='$email',gender=N'$gender',phoneNumber='$phoneNumber' WHERE id='$userId'";
             $userInfoQuery = "SELECT id,email, password,role,avatar,gender,phoneNumber FROM Users WHERE id='$userId'";
             $updateProfileResult = Database::update($updateProfileQuery);
             if ($updateProfileResult != false) {

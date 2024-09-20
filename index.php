@@ -32,36 +32,36 @@ $PostsData = $categoryId !== false ? getPostsByCategory($categoryId) : getAllAct
         <div class="posts-container">
             <div class="posts-container__grid">
                 <?php if (empty($PostsData)): ?>
-                <p class="text-center fs-2">This category don't have any post!!! </p>
+                    <p class="text-center fs-2">This category don't have any post!!! </p>
                 <?php elseif (isset($PostsData)): ?>
-                <?php foreach ($PostsData as $item): ?>
-                <?php
+                    <?php foreach ($PostsData as $item): ?>
+                        <?php
                         $authorData = getUserById($item['authorId']);
                         ?>
-                <div class="posts-container__item">
-                    <a href="./post.php?userId=<?= $authorData['id'] ?>&postId=<?= $item['id'] ?>" class="card">
-                        <div class="card-image">
-                            <img src="<?= $item['thumbnail'] ?>" alt="./src/assets/images/Logo.pnj" class="h-100 w-100">
+                        <div class="posts-container__item">
+                            <a href="./post.php?authorId=<?= $authorData['id'] ?>&postId=<?= $item['id'] ?>" class="card">
+                                <div class="card-image">
+                                    <img src="<?= $item['thumbnail'] ?>" alt="./src/assets/images/Logo.pnj" class="h-100 w-100">
+                                </div>
+                                <div class="card-content">
+                                    <p class="card-content__category">
+                                        <?= $item['category'] ?>
+                                    </p>
+                                    <p class="card-content__title">
+                                        <?= $item['title'] ?>
+                                    </p>
+                                    <p class="card-content__preview">
+                                        <?= Format::textShorten($item['content']); ?>
+                                    </p>
+                                    <div class="card-content__author">
+                                        <img class="author-avatar" src="./src/assets/images/Logo.png" />
+                                        <span class="author-name">
+                                            <?= $authorData['username'] ?></span>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
-                        <div class="card-content">
-                            <p class="card-content__category">
-                                <?= $item['category'] ?>
-                            </p>
-                            <p class="card-content__title">
-                                <?= $item['title'] ?>
-                            </p>
-                            <p class="card-content__preview">
-                                <?= Format::textShorten($item['content']); ?>
-                            </p>
-                            <div class="card-content__author">
-                                <img class="author-avatar" src="./src/assets/images/Logo.png" />
-                                <span class="author-name">
-                                    <?= $authorData['username'] ?></span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <?php endforeach; ?>
+                    <?php endforeach; ?>
                 <?php endif; ?>
             </div>
 
