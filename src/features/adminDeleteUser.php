@@ -8,6 +8,12 @@ if ($userRole == "ADMIN") {
     if ($deleteUserId !== false) {
         try {
             require "../lib/database.php";
+            require "./getUserById.php";
+            $deleteUserData = getUserById($userId);
+            $deleteAvatarPath = str_replace('./src/', '../', $deleteUserData['avatar']);
+            if (file_exists($deleteAvatarPath)) {
+                unlink($deleteAvatarPath);
+            }
             $deleteUserQuery = "DELETE FROM Users WHERE id = $deleteUserId";
             $deleteUserResult = Database::update($deleteUserQuery);
             if ($deleteUserResult !== false) {
