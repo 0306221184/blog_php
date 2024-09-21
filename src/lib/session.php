@@ -22,6 +22,10 @@ class Session
       $_SESSION[$key] = $val;
    }
 
+   public static function unSet($key)
+   {
+      unset($_SESSION[$key]);
+   }
    public static function get($key)
    {
       if (isset($_SESSION[$key])) {

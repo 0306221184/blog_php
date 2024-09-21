@@ -14,6 +14,7 @@ if ($authorId == false || $postId == false) {
 } else {
     $authorData = getUserById($authorId);
     $postData = getPostsById($postId);
+    $sentences = explode('.', $postData['content']);
     if ($authorData == false || $postData == false) {
         header("Location: ./index.php?error=Server error!!!");
         die();
@@ -54,9 +55,11 @@ if ($authorId == false || $postId == false) {
             </a>
         </div>
         <div class="post-body">
-            <p class="post-body__text">
-                <?= $postData['content'] ?>
-            </p>
+            <?php foreach ($sentences as $sentence):  ?>
+                <p class="post-body__text mt-1">
+                    <?= $sentence ?>
+                </p>
+            <?php endforeach; ?>
         </div>
         <?php require './src/components/postComment/index.php' ?>
     </main>
