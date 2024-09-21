@@ -2,8 +2,9 @@ select * from Users;
 select * from Posts;
 select * from Categories;
 select * from Comments;
-select * from Followers;
+select * from Followers ;
 select * from Nofitications;  -- enum(\'COMMENT\',\'POST\')
+delete from Followers where followerId = 15;
 
 delete from Posts where id=7;
 UPDATE Users SET isDisable = false where id = 13;
@@ -30,4 +31,11 @@ FROM
 WHERE 
     TABLE_SCHEMA ='sql12730827'  
     AND TABLE_NAME = 'Nofitications';
+
+SELECT Posts.id,Posts.title,Posts.content,Posts.authorId,Posts.thumbnail,Posts.isActive,Categories.name AS category
+                                FROM Posts 
+                                INNER JOIN Categories ON Posts.categoryId = Categories.id
+                                INNER JOIN Users ON Posts.authorId = Users.id
+                                WHERE Posts.isActive = 1
+                                LIMIT 4,5
     
