@@ -1,12 +1,13 @@
 <?php
-function getAllActivePosts()
+function getAllActivePosts($offsetLimit, $limit)
 {
     try {
         $getAllActivePostsQuery = "SELECT Posts.id,Posts.title,Posts.content,Posts.authorId,Posts.thumbnail,Posts.isActive,Categories.name AS category
                                 FROM Posts 
                                 INNER JOIN Categories ON Posts.categoryId = Categories.id
                                 INNER JOIN Users ON Posts.authorId = Users.id
-                                WHERE Posts.isActive = 1";
+                                WHERE Posts.isActive = 1
+                                LIMIT $offsetLimit,$limit";
         $getAllActivePostsResult = Database::select($getAllActivePostsQuery);
         if ($getAllActivePostsResult !== false) {
             $getAllActivePostsData = $getAllActivePostsResult->fetch_all(MYSQLI_ASSOC);

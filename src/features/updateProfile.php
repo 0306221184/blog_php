@@ -4,9 +4,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     require '../lib/session.php';
     Session::init();
     $type = $_POST["type"];
+    $userId = Session::get('userId');
+    $followerId = isset($_GET['followerId']) && !empty($_GET['followerId']) ? $_GET['followerId'] : null;
     if ($type == "update") {
         $updateAvatarStatus = false;
-        $userId = Session::get('userId');
         $getOldAvatarPathQuery = "SELECT avatar from Users WHERE id='$userId'";
         $oldAvatarPathResult = Database::select($getOldAvatarPathQuery);
         $oldAvatarPath = $oldAvatarPathResult->fetch_assoc();
@@ -87,9 +88,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 die();
             }
         }
+    } else if ($type = "follow") {
+        try {
+            if ($followerId) {
+                $selectFollowerQuery = "SELECT followerId,followedId FROM Followers WHERE followerId = $userId AND followedId = $followerId";
+                $checkFollower = Database::select($selectFollowerQuery);
+                if ($checkFollower == false) {
+                    $insertFollowerQuery = "INSERT INTO Followers (followerId,followedId) VALUES ('$userId','$followerId')";
+                    $insertFollowerResult = Database::insert($insertFollowerQuery);
+                    if ($insertFollowerResult !== false) {
+                        header("Location: ../../user.php?path=profile&userId=$followerId&message=Followed");
+                        die();
+                    } else {
+                        header("Location: ../../user.php?path=profile&userId=$followerId&error=Can not follow,server error!!");
+                        die();
+                    }
+                } else {
+                    header("Location: ../../user.php?path=profile&userId=$followerId&message=Already follow!!");
+                    die();
+                }
+            } else {
+                header("Location: ../../user.php?path=profile&userId=$followerId&error=Follower id is required!!");
+                die();
+            }
+        } catch (Exception $e) {
+            $error = $e->getMessage();
+            header("Location: ../../user.php?path=profile&userId=$followerId&error=Can not follow,$error!!");
+            die();
+        }
     }
-    // else if ($type = "follow") {
-    //     $updateFollowQuery = "UPDATE user SET username='$username',email='$email',gender='$gender',phoneNumber='$phoneNumber'";
-    //     $updateFollowResult = Database::update($updateProfileQuery);
-    // }
 }
