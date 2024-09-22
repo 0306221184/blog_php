@@ -31,8 +31,10 @@ try {
                         $createPostQuery = "INSERT INTO Posts (title,content,thumbnail,categoryId,authorId) 
                         VALUES ('$postTitle','$postContent','$pathThumbnailFileName','$postCategoryId','$userId')";
                         require "../lib/database.php";
+                        require "../features/createNotification.php";
                         $createPostResult = Database::insert($createPostQuery);
                         if ($createPostResult != false) {
+                            $createNotification = createNotification($userId, "POST", $postTitle);
                             header("Location: ../../writePost.php?message=Create post successfully!!");
                             die();
                         } else {
