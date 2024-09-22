@@ -2,9 +2,9 @@ select * from Users;
 select * from Posts;
 select * from Categories;
 select * from Comments;
-select * from Followers ;
+select * from Followers;
 select * from Nofitications;  -- enum(\'COMMENT\',\'POST\')
-delete from Followers where followerId = 15;
+delete from Nofitications where id = 1;
 
 delete from Posts where id=7;
 UPDATE Users SET isDisable = false where id = 13;
@@ -37,5 +37,9 @@ SELECT Posts.id,Posts.title,Posts.content,Posts.authorId,Posts.thumbnail,Posts.i
                                 INNER JOIN Categories ON Posts.categoryId = Categories.id
                                 INNER JOIN Users ON Posts.authorId = Users.id
                                 WHERE Posts.isActive = 1
-                                LIMIT 4,5
+                                LIMIT 4,5;
     
+INSERT INTO Notifications (userId, triggerUserId, type, content)
+                                    SELECT followerId, followedId, 'POST','Hiểu được 8 cơ chế này, bạn sẽ bất ngờ về khả năng ghi nhớ của mình.' 
+                                    FROM Followers
+                                    WHERE followedId = 14;

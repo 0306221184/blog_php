@@ -2,6 +2,7 @@
 try {
     require "../lib/session.php";
     require "../lib/database.php";
+    require "../features/createNotification.php";
     Session::init();
     $userId = Session::get('userId');
     $postId = isset($_POST['postId']) ? $_POST['postId'] : false;
@@ -17,6 +18,7 @@ try {
         $insertCommentQuery = "INSERT INTO Comments (content,postId,userId) VALUES ('$commentContent','$postId','$userId')";
         $insertCommentResult = Database::insert($insertCommentQuery);
         if ($insertCommentResult !== false) {
+            $createNotificationForFollower = createNotification($postAuthorId, "COMMENT", $commentContent);
             header("Location: ../../post.php?authorId=$postAuthorId&postId=$postId&message=Comment create successfully!!!#postComments");
             die();
         } else {
