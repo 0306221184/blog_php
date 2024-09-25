@@ -1,9 +1,14 @@
 <?php
-define("DB_HOST", "sql12.freesqldatabase.com");
-define("DB_USER", "sql12730827");
-define("DB_PASS", 'gFl3Jsliwg');
-define("DB_NAME", "sql12730827");
-define("DB_PORT", 3306);
+// define("DB_HOST", "sql12.freesqldatabase.com");
+// define("DB_USER", "sql12730827");
+// define("DB_PASS", 'gFl3Jsliwg');
+// define("DB_NAME", "sql12730827");
+// define("DB_PORT", 3306);
+define("DB_HOST", "localhost");
+define("DB_USER", "tinwana");
+define("DB_PASS", '844466tin');
+define("DB_NAME", "spiderum-clone-db");
+define("DB_PORT", 3308);
 ?>
 <?php
 class Database

@@ -4,7 +4,7 @@ select * from Categories;
 select * from Comments;
 select * from Followers;
 select * from Nofitications;  -- enum(\'COMMENT\',\'POST\')
-delete from Nofitications where id = 1;
+delete from Posts where id = 27;
 
 delete from Posts where id=7;
 UPDATE Users SET isDisable = false where id = 13;
@@ -43,3 +43,6 @@ INSERT INTO Notifications (userId, triggerUserId, type, content)
                                     SELECT followerId, followedId, 'POST','Hiểu được 8 cơ chế này, bạn sẽ bất ngờ về khả năng ghi nhớ của mình.' 
                                     FROM Followers
                                     WHERE followedId = 14;
+SELECT id,userId,triggerUserId,type,content,isRead,createdAt
+                                    FROM Nofitications
+                                    WHERE userId=1 AND isRead = 0;

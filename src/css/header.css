@@ -15,7 +15,13 @@
 
 .popover-all {
     width: 286px;
+}
 
+.popover-notification {
+    width: 448px;
+    height: 600px;
+    border-radius: 8px;
+    background-color: #fff;
 }
 
 .popover-username {

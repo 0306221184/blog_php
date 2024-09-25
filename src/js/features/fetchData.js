@@ -1,9 +1,9 @@
-const getUser = async (url) => {
+const fetchData = async (url) => {
   try {
     const response = await fetch(url, {
       method: "GET",
     });
-    const data = response.json();
+    const data = await response.json();
     return data;
   } catch (error) {
     console.error("Error fetching data:", error);
@@ -12,4 +12,4 @@ const getUser = async (url) => {
     };
   }
 };
-export default getUser;
+export default fetchData;

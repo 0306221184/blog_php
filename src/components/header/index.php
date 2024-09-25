@@ -5,8 +5,8 @@ Session::init();
 ?>
 <?php if (isset($_SESSION['login']) && $_SESSION['login']): ?>
 <?php
-        $userId = Session::get("userId");
-        $notificationData = getNotificationByUserId($userId) !== false ? getNotificationByUserId($userId) : [];    
+    $userId = Session::get("userId");
+    $notificationData = getNotificationByUserId($userId) !== false ? getNotificationByUserId($userId) : [];
     ?>
 <header class="d-flex flex-column justify-content-center align-items-center header w-100 shadow bg-light">
     <div class="container d-flex justify-content-between align-items-center gap-5">
@@ -33,7 +33,7 @@ Session::init();
             <div class="icon d-flex align-items-center text-dark">
                 <i class="fas fa-search w-100 h-100 text-dark opacity-50"></i>
             </div>
-            <div class="icon d-flex align-items-center text-dark">
+            <div id="notification__bell" class="icon d-flex align-items-center text-dark">
                 <i id="notificationBell" class="fa-regular fa-bell w-100 h-100 text-dark opacity-50"></i>
                 <div class="notification-remain bg-danger">
                     <?= count($notificationData); ?>
@@ -44,7 +44,7 @@ Session::init();
     <div class="container d-none d-lg-flex justify-content-between align-items-end h-50 pb-3 ">
         <?php
             require "./src/features/getNumberOfCategories.php";
-            $getNumberOfCategoriesData = getNumberOfCategories(5);
+            $getNumberOfCategoriesData = getNumberOfCategories(5) !== false ? getNumberOfCategories(5) : [];
             ?>
         <?php foreach ($getNumberOfCategoriesData as $item): ?>
         <span class=""><a class="nav-link"

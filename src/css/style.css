@@ -40,6 +40,13 @@ input {
     border-radius: 100% !important;
 }
 
+.w-fw {
+    width: 100vw;
+}
+
+.h-fh {
+    height: 100vh;
+}
 
 .cursorPointer {
     cursor: pointer;
